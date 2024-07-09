@@ -11,15 +11,13 @@
 /* ************************************************************************** */
 #include "libft.h"
 
-char	*ft_strchr(const char *s, int c)
+char	*ft_strchr(const char *s)
 {
 	while (*s)
 	{
-		if (*s == (char)c)
+		if (*s == 32 || (*s >= 9 && *s <= 13))
 			return ((char *)s);
 		s++;
 	}
-	if (*s == (char)c)
-		return ((char *)s);
 	return (NULL);
 }

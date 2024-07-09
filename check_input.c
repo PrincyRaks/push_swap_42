@@ -13,6 +13,16 @@
 #include "push_swap.h"
 #include <stdlib.h>
 
+static int strlen_tab(char **str)
+{
+	int i;
+
+	i = 0;
+	while (str[i] != NULL)
+		i++;
+	return (i);
+}
+
 static char	*ft_strjoin_data(char *s1, char *s2)
 {
 	char	*new_s;
@@ -29,11 +39,58 @@ static char	*ft_strjoin_data(char *s1, char *s2)
 	while (*tmp_s1)
 		*(new_s++) = *(tmp_s1++);
 	if (*s1 && *s2)
-		*(new_s++) = ' ';
+		*(new_s++) = 32;
 	while (*s2)
 		*(new_s++) = *(s2++);
 	free(s1);
 	return (new_s - len);
+}
+
+static long	*convert_int(char *str)
+{
+	char	**tab_s;
+	long	*tab_n;
+	int		i;
+
+	tab_s = ft_split(str);
+	tab_n = (long*)malloc(sizeof(long) * strlen_tab(tab_s));
+	if (!tab_n)
+		return (0);
+	i = 0;
+	while (tab_s[i] != NULL)
+	{
+		tab_n[i] = ft_atoi(tab_s[i]);
+		if (tab_n[i] > 2147483647 || tab_n[i] < -2147483648)
+			print_error();
+		i++;
+	}
+	return (tab_n);
+}
+
+static int	not_dup(long *number)
+{
+	int	i;
+	int	j;
+	int	count;
+	long	*dup;
+
+	i = 0;
+	dup = number;
+	while (number[i])
+	{
+		j = 0;
+		count = 0;
+		while (dup[j])
+		{
+			if (number[i] == dup[j])
+				count++;
+			j++;
+		}
+		if (count >= 2)
+			return (0);
+		i++;
+	}
+	return (1);
 }
 
 static int	check_number(char *s)
@@ -55,22 +112,26 @@ static int	check_number(char *s)
 			else
 				return (0);
 		}
-		while (s[i] >= '0' && s[i] <= '9')
+		while (s[i] >= 48 && s[i] <= 57)
 			i++;
 	}
 	return (1);
 }
 
-char	*check_input(char **argv)
+long	*check_input(char **argv)
 {
-	int i;
-	int len;
-	char *data;
+	int 		i;
+	char		*data;
+	long		*number;
 
 	i = 1;
 	data = ft_calloc(1, 1);
 	while (argv[i])
 		data = ft_strjoin_data(data, argv[i++]);
-	printf("HI: %d\n", check_number(data));
-	return (data);
+	if (!check_number(data))
+		print_error();
+	number = convert_int(data);
+	if (!not_dup(number))
+		print_error();
+	return (number);
 }

@@ -9,10 +9,11 @@
 /*   Updated: 2024/03/11 09:47:37 by rrakotos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "libft.h"
 #include <stdlib.h>
 
-static size_t	count_words(char const *s, char c)
+static size_t	count_words(char const *s)
 {
 	size_t	len;
 
@@ -21,25 +22,25 @@ static size_t	count_words(char const *s, char c)
 	len = 0;
 	while (*s)
 	{
-		while (*s == c)
+		while (*s == 32 || (*s >= 9 && *s <= 13))
 			s++;
 		if (*s)
 			len++;
-		while (*s != c && *s)
+		while ((*s != 32 && *s) && (*s < 9 || *s > 13))
 			s++;
 	}
 	return (len);
 }
 
-static char	*store_word(char const *start, char c)
+static char	*store_word(char const *start)
 {
 	char	*word;
 	size_t	len_w;
 	size_t	i;
 
 	len_w = 0;
-	if (ft_strchr(start, c))
-		len_w = ft_strchr(start, c) - start;
+	if (ft_strchr(start))
+		len_w = ft_strchr(start) - start;
 	else
 		len_w = ft_strlen(start);
 	word = (char *)malloc(sizeof(char) * (len_w + 1));
@@ -55,27 +56,27 @@ static char	*store_word(char const *start, char c)
 	return (word);
 }
 
-char	**ft_split(char const *s, char c)
+char	**ft_split(char const *s)
 {
 	char	**list_w;
 	size_t	i;
 
-	list_w = (char **)malloc(sizeof(char *) * (count_words(s, c) + 1));
+	list_w = (char **)malloc(sizeof(char *) * (count_words(s) + 1));
 	if (!list_w)
 		return (NULL);
 	i = 0;
 	while (*s)
 	{
-		while (*s == c)
+		while (*s == 32 || (*s >= 9 && *s <= 13))
 			s++;
 		if (*s)
 		{
-			list_w[i] = store_word(s, c);
+			list_w[i] = store_word(s);
 			if (!list_w[i])
 				free(list_w);
 			i++;
 		}
-		while (*s != c && *s)
+		while ((*s != 32 && *s) && (*s < 9 || *s > 13))
 			s++;
 	}
 	list_w[i] = NULL;

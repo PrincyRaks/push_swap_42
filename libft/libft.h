@@ -16,11 +16,11 @@
 # include <stddef.h>
 # include <stdio.h>
 
-int		ft_atoi(const char *nptr);
+long	ft_atoi(const char *nptr);
 int		ft_isdigit(int c);
-char	**ft_split(char const *s, char c);
+char	**ft_split(char const *s);
 size_t	ft_strlen(const char *s);
-char	*ft_strchr(const char *s, int c);
+char	*ft_strchr(const char *s);
 void	*ft_calloc(size_t elementCount, size_t elementSize);
 void	ft_bzero(void *s, size_t n);
 int		ft_isalpha(int c);

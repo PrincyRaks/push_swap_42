@@ -23,6 +23,6 @@ typedef struct s_stack
 	struct s_stack	*next;
 }					t_stack;
 void				print_error(void);
-char				*check_input(char **argv);
+long	*check_input(char **argv);
 
 #endif

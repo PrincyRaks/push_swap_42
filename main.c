@@ -26,6 +26,6 @@ int main(int argc, char **argv)
 {
     if (argc < 2)
         return (0);
-    printf("%s\n", check_input(argv));
+    check_input(argv);
     return (0);
 }
