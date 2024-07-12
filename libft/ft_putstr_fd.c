@@ -1,20 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_error.c                                      :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rrakotos <rrakotos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/09 20:04:53 by marvin            #+#    #+#             */
-/*   Updated: 2024/07/10 09:46:24 by rrakotos         ###   ########.fr       */
+/*   Created: 2024/02/28 09:41:40 by rrakotos          #+#    #+#             */
+/*   Updated: 2024/07/10 14:17:53 by rrakotos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 #include <unistd.h>
-#include <stdlib.h>
 
-void    print_error(void)
+void	ft_putstr_fd(char *s, int fd)
 {
-    write(1, "Error\n", 6);
-    exit(1);
+	write(fd, s, ft_strlen(s));
 }

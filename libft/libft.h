@@ -6,7 +6,7 @@
 /*   By: rrakotos <rrakotos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/09 13:41:46 by rrakotos          #+#    #+#             */
-/*   Updated: 2024/07/09 16:16:29 by rrakotos         ###   ########.fr       */
+/*   Updated: 2024/07/10 10:00:29 by rrakotos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,6 @@ char	*ft_strchr(const char *s);
 void	*ft_calloc(size_t elementCount, size_t elementSize);
 void	ft_bzero(void *s, size_t n);
 int		ft_isalpha(int c);
+void	ft_putstr_fd(char *s, int fd);
 
 #endif

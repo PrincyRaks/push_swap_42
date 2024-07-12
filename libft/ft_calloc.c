@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rrakotos <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: rrakotos <rrakotos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/23 12:12:36 by rrakotos          #+#    #+#             */
-/*   Updated: 2024/03/11 10:28:13 by rrakotos         ###   ########.fr       */
+/*   Updated: 2024/07/10 09:54:24 by rrakotos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <stdlib.h>
+
 #include "libft.h"
+#include <stdlib.h>
 
 void	*ft_calloc(size_t elementCount, size_t elementSize)
 {

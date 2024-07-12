@@ -6,16 +6,16 @@
 /*   By: rrakotos <rrakotos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/09 13:30:47 by rrakotos          #+#    #+#             */
-/*   Updated: 2024/07/09 16:43:59 by rrakotos         ###   ########.fr       */
+/*   Updated: 2024/07/12 16:56:22 by rrakotos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include <stdlib.h>
 
-static int strlen_tab(char **str)
+int	strlen_tab(char **str)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (str[i] != NULL)
@@ -23,7 +23,7 @@ static int strlen_tab(char **str)
 	return (i);
 }
 
-static char	*ft_strjoin_data(char *s1, char *s2)
+char	*ft_strjoin_data(char *s1, char *s2)
 {
 	char	*new_s;
 	char	*tmp_s1;
@@ -46,14 +46,14 @@ static char	*ft_strjoin_data(char *s1, char *s2)
 	return (new_s - len);
 }
 
-static long	*convert_int(char *str)
+long	*convert_int(char *str)
 {
 	char	**tab_s;
 	long	*tab_n;
 	int		i;
 
 	tab_s = ft_split(str);
-	tab_n = (long*)malloc(sizeof(long) * strlen_tab(tab_s));
+	tab_n = (long *)malloc(sizeof(long) * strlen_tab(tab_s));
 	if (!tab_n)
 		return (0);
 	i = 0;
@@ -67,11 +67,11 @@ static long	*convert_int(char *str)
 	return (tab_n);
 }
 
-static int	not_dup(long *number)
+int	not_dup(long *number)
 {
-	int	i;
-	int	j;
-	int	count;
+	int		i;
+	int		j;
+	int		count;
 	long	*dup;
 
 	i = 0;
@@ -93,7 +93,7 @@ static int	not_dup(long *number)
 	return (1);
 }
 
-static int	check_number(char *s)
+int	check_number(char *s)
 {
 	int	i;
 
@@ -120,9 +120,9 @@ static int	check_number(char *s)
 
 long	*check_input(char **argv)
 {
-	int 		i;
-	char		*data;
-	long		*number;
+	int		i;
+	char	*data;
+	long	*number;
 
 	i = 1;
 	data = ft_calloc(1, 1);
