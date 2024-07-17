@@ -1,10 +1,13 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_input.c                                      :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: rrakotos <rrakotos@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
+/*   check_dup.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+
+	+:+     */
+/*   By: rrakotos <rrakotos@student.42.fr>          +#+  +:+
+	+#+        */
+/*                                                +#+#+#+#+#+
+	+#+           */
 /*   Created: 2024/07/09 13:30:47 by rrakotos          #+#    #+#             */
 /*   Updated: 2024/07/12 16:56:22 by rrakotos         ###   ########.fr       */
 /*                                                                            */
@@ -13,9 +16,10 @@
 #include "push_swap.h"
 #include <stdlib.h>
 
+
 int	strlen_tab(char **str)
 {
-	int	i;
+	int i;
 
 	i = 0;
 	while (str[i] != NULL)
@@ -25,16 +29,16 @@ int	strlen_tab(char **str)
 
 char	*ft_strjoin_data(char *s1, char *s2)
 {
-	char	*new_s;
-	char	*tmp_s1;
-	size_t	len;
+	char *new_s;
+	char *tmp_s1;
+	size_t len;
 
 	len = ft_strlen(s1) + ft_strlen(s2);
 	if (*s1 && *s2)
 		len++;
 	new_s = ft_calloc((len + 1), 1);
 	if (!new_s)
-		return (free(s1), NULL);
+		return(free(s1), NULL);
 	tmp_s1 = s1;
 	while (*tmp_s1)
 		*(new_s++) = *(tmp_s1++);
@@ -46,41 +50,44 @@ char	*ft_strjoin_data(char *s1, char *s2)
 	return (new_s - len);
 }
 
-long	*convert_int(char *str)
+long	*convert_int(char **str, int size)
 {
-	char	**tab_s;
-	long	*tab_n;
-	int		i;
+	long *tab_n;
+	int i;
 
-	tab_s = ft_split(str);
-	tab_n = (long *)malloc(sizeof(long) * strlen_tab(tab_s));
+	tab_n = (long *)malloc(sizeof(long) * size);
 	if (!tab_n)
-		return (0);
+		return (free(str), NULL);
 	i = 0;
-	while (tab_s[i] != NULL)
+	while (str[i])
 	{
-		tab_n[i] = ft_atoi(tab_s[i]);
+		tab_n[i] = ft_atoi(str[i]);
 		if (tab_n[i] > 2147483647 || tab_n[i] < -2147483648)
+		{
 			print_error();
+			free(str);
+			return (free(tab_n), NULL);
+		}
 		i++;
 	}
+	free(str);
 	return (tab_n);
 }
 
-int	not_dup(long *number)
+int	not_dup(long *number, int size)
 {
-	int		i;
-	int		j;
-	int		count;
-	long	*dup;
+	int i;
+	int j;
+	int count;
+	long *dup;
 
 	i = 0;
 	dup = number;
-	while (number[i])
+	while (i < size)
 	{
 		j = 0;
 		count = 0;
-		while (dup[j])
+		while (j < size)
 		{
 			if (number[i] == dup[j])
 				count++;
@@ -95,14 +102,15 @@ int	not_dup(long *number)
 
 int	check_number(char *s)
 {
-	int	i;
+	int i;
 
 	i = 0;
 	while (s[i] != '\0')
 	{
-		if (ft_isalpha(s[i]))
+		if ((!ft_isdigit(s[i]) && !ft_isspace(s[i])) 
+			&& (s[i] != '-' && s[i] != '+'))
 			return (0);
-		while (s[i] == 32 || (s[i] >= 9 && s[i] <= 13))
+		while (ft_isspace(s[i]))
 			i++;
 		if (s[i] == '-' || s[i] == '+')
 		{
@@ -118,20 +126,43 @@ int	check_number(char *s)
 	return (1);
 }
 
-long	*check_input(char **argv)
+long	*check_dup(char **data, int size)
 {
-	int		i;
-	char	*data;
-	long	*number;
+	long *number;
+
+	number = convert_int(data, size);
+	if (!not_dup(number, size))
+	{
+		print_error();
+		free(data);
+		free(number);
+	}
+	return (number);
+}
+
+t_stack	*init_data(char **argv)
+{
+	int i;
+	char *data;
+	char **tab_str;
+	t_stack *lst;
 
 	i = 1;
 	data = ft_calloc(1, 1);
 	while (argv[i])
 		data = ft_strjoin_data(data, argv[i++]);
 	if (!check_number(data))
+	{
 		print_error();
-	number = convert_int(data);
-	if (!not_dup(number))
-		print_error();
-	return (number);
+		free(data);
+	}
+	tab_str = ft_split(data);
+	if (!tab_str)
+	{
+		free(tab_str);
+		return (NULL);
+	}
+	i = strlen_tab(tab_str);
+	lst = init_stack(check_dup(tab_str, i), i);
+	return (lst);
 }

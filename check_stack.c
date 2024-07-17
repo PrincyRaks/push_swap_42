@@ -1,19 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isdigit.c                                       :+:      :+:    :+:   */
+/*   check_stack.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rrakotos <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/19 10:32:50 by rrakotos          #+#    #+#             */
-/*   Updated: 2024/02/19 10:34:38 by rrakotos         ###   ########.fr       */
+/*   Created: 2024/07/16 22:42:18 by marvin            #+#    #+#             */
+/*   Updated: 2024/07/16 22:42:18 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "libft.h"
 
-int	ft_isdigit(int c)
+#include "push_swap.h"
+
+int is_range(t_stack *first)
 {
-	if (c >= 48 && c <= 57)
-		return (1);
-	return (0);
+    while(first)
+    {
+        // ts mety ty condition ty !
+        if (first->value > first->next->value)
+            return (0);
+        first = first->next;
+    }
+    return (1);
 }

@@ -11,33 +11,55 @@
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdio.h>
-#include <stdlib.h>
+#include <limits.h>
 
 int	main(int argc, char **argv)
 {
-	t_stack	*lst;
-	char	*data;
-	int		i;
-	long	*number;
+	t_stack	*a;
+	t_stack **b;
+	t_stack *pile_a;
+	t_stack **pile_b;
 
+	a = NULL;
 	if (argc > 1)
 	{
-		i = 1;
-		while (argv[i])
-			data = ft_strjoin_data(data, argv[i++]);
-		// if (!check_number(data))
-		// 	print_error();
-		// number = convert_int(data);
-		// if (!not_dup(number))
-		// 	print_error();
-		// lst = init_stack(number);
-		// while (lst)
+		a = init_data(argv);
+		// b = (t_stack**)malloc(sizeof(t_stack*));
+		// printf("b: %p et *b: %p\n",b ,*b);
+		// pile_a = a;
+		// pile_b = b;
+		// test function move
+		// push_swap(a, b);
+		// printf("PILE de A\n");
+		// while (a)
 		// {
-		// 	printf("value: %d et index: %d \n", lst->value, lst->index);
-		// 	lst = lst->next;
+		// 	printf("value: %d | next: %p | top: %p | bottom: %p\n",
+		// 	a->value, a->next, a->top, a->bottom);
+		// 	a = a->next;
 		// }
-		printf("HH");
+		// printf("PILE de B\n");
+		// while (*b)
+		// {
+		// 	printf("value: %d | next: %p | top: %p | bottom: %p\n",
+		// 	(*b)->value, (*b)->next, (*b)->top, (*b)->bottom);
+		// 	*b = (*b)->next;
+		// }
+		// push(&pile_a, pile_b);
+		// printf("PUSH !!! :\n");
+		// printf("PILE de A \n");
+		// while (pile_a)
+		// {
+		// 	printf("value: %d | next: %p | top: %p | bottom: %p\n",
+		// 	pile_a->value, pile_a->next, pile_a->top, pile_a->bottom);
+		// 	pile_a = pile_a->next;
+		// }
+		// printf("PILE de B: \n");
+		// while (*pile_b)
+		// {
+		// 	printf("value: %d | next: %p | top: %p | bottom: %p\n",
+		// 	(*pile_b)->value, (*pile_b)->next, (*pile_b)->top, (*pile_b)->bottom);
+		// 	*pile_b = (*pile_b)->next;
+		// }
 	}
 	return (0);
 }
