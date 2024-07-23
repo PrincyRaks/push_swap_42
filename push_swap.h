@@ -25,7 +25,7 @@ typedef struct s_stack
 {
 	int value;
 	unsigned int index;
-	unsigned int target_index;
+	// unsigned int target_index;
 	struct s_stack *top;
 	struct s_stack *bottom;
 	struct s_stack *next;
@@ -63,12 +63,12 @@ int	is_max(t_stack *node, t_stack *first);
 int	is_min(t_stack *node, t_stack *first);
 t_stack	*get_value_max(t_stack *first);
 
-int	new_min_max(t_stack *node_a, t_stack *b);
 unsigned int	get_target_index(t_stack *node_a, t_stack *first_b);
-void	insert_target_index(t_stack **a, t_stack **b);
-
-unsigned int	mediane(unsigned int length);
-unsigned int	calculate_cost_node(t_stack *node_a, int length_a, int length_b);
+// void	insert_target_index(t_stack **a, t_stack **b);
+unsigned int	median(unsigned int length);
+int	same_level(int index, int target_i, int len_a, int len_b);
+int	cost_individual(int	index, int len);
+int	cost_node(t_stack *node_a, t_stack *first_b, int len_a, int len_b);
 // t_stack	*get_min_cost(t_stack *first_a, t_stack *first_b);
 void	launch_move_1(t_stack *to_range, t_stack **stack_a, t_stack **stack_b, int length_a, int length_b);
 void	get_min_cost(t_stack **first_a, t_stack **first_b);

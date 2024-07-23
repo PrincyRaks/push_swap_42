@@ -12,15 +12,19 @@
 
 #include "push_swap.h"
 
-int	new_min_max(t_stack *node_a, t_stack *b)
-{
-	if (node_a && b)
-	{
-		if (is_max(node_a, b) || is_min(node_a, b))
-			return (1);
-	}
-	return (0);
-}
+// void	insert_target_index(t_stack **a, t_stack **b)
+// {
+// 	t_stack	*node_a;
+
+// 	if (!a || !b)
+// 		return ;
+// 	node_a = *a;
+// 	while (node_a)
+// 	{
+// 		node_a->target_index = get_target_index(node_a, *b);
+// 		node_a = node_a->next;
+// 	}
+// }
 
 unsigned int	get_target_index(t_stack *node_a, t_stack *first_b)
 {
@@ -32,7 +36,7 @@ unsigned int	get_target_index(t_stack *node_a, t_stack *first_b)
 	while (first_b)
 	{
 		if ((node_a->value > first_b->value) && (min_index == NULL 
-				|| first_b->value > min_index->value))
+			|| first_b->value > min_index->value))
 			min_index = first_b;
 		first_b = first_b->next;
 	}
@@ -41,21 +45,7 @@ unsigned int	get_target_index(t_stack *node_a, t_stack *first_b)
 	return (min_index->index);
 }
 
-void	insert_target_index(t_stack **a, t_stack **b)
-{
-	t_stack	*node_a;
-
-	if (!a || !b)
-		return ;
-	node_a = *a;
-	while (node_a)
-	{
-		node_a->target_index = get_target_index(node_a, *b);
-		node_a = node_a->next;
-	}
-}
-
-unsigned int	mediane(unsigned int length)
+unsigned int	median(unsigned int length)
 {
 	unsigned int	result;
 
@@ -65,38 +55,51 @@ unsigned int	mediane(unsigned int length)
 	return (result / 2);
 }
 
-unsigned int	calculate_cost_node(t_stack *node_a, int length_a, int length_b)
+int	same_level(int index, int target_i, int len_a, int len_b)
 {
-	unsigned int	mediane_a;
-	unsigned int	mediane_b;
-	unsigned int	cost_a;
-	unsigned int	cost_b;
+	int	median_a;
+	int	median_b;
 
-	mediane_a = mediane(length_a);
-	mediane_b = mediane(length_b);
-	cost_a = 0;
-	cost_b = 0;
-	if (node_a->index <= mediane_a && node_a->target_index <= mediane_b)
+	median_a = median((unsigned int)len_a);
+	median_b = median((unsigned int)len_b);
+	if (index <= median_a && target_i <= median_b)
 	{
-		if (node_a->index >= node_a->target_index)
-			return (node_a->index + 1);
-		return (node_a->target_index + 1);
+		if (index >= target_i)
+			return (index + 1);
+		return (target_i + 1);
 	}
-	else if (node_a->index > mediane_a && node_a->target_index > mediane_b)
+	if (index > median_a && target_i > median_b)
 	{
-		if ((length_a - node_a->index) >= (length_b - node_a->target_index))
-			return (length_a - node_a->index + 1);
-		return (length_b - node_a->target_index + 1);
+		if ((len_a - index) >= (len_b - target_i))
+			return (len_a - index + 1);
+		return (len_b - target_i + 1);
 	}
-	if (node_a->index < mediane_a)
-		cost_a = node_a->index;
-	if (node_a->index >= mediane_a)
-		cost_a = length_a - node_a->index;
-	if (node_a->target_index < mediane_b)
-		cost_b = node_a->target_index;
-	if (node_a->target_index >= mediane_b)
-		cost_b = length_b - node_a->target_index;
-	return (cost_a + cost_b + 1);
+	return (0);
+}
+
+int	cost_individual(int	index, int len)
+{
+	unsigned int	med;
+
+	med = median((unsigned int)len);
+	if (index < med)
+		return (index);
+	return (len - index);
+}
+
+int	cost_node(t_stack *node_a, t_stack *first_b, int len_a, int len_b)
+{
+	unsigned int	cost_1;
+	unsigned int	cost_2;
+	unsigned int	target_i;
+
+	target_i = get_target_index(node_a, first_b);
+    cost_1 = (unsigned int)same_level(node_a->index, (int)target_i, len_a, len_b);
+    if (cost_1 > 0)
+        return (cost_1);
+	cost_1 = (unsigned int)cost_individual(node_a->index, len_a);
+	cost_2 = (unsigned int)cost_individual(target_i, len_b);
+	return ((int)(cost_1 + cost_2 + 1));
 }
 
 void	get_min_cost(t_stack **first_a, t_stack **first_b)
@@ -111,12 +114,12 @@ void	get_min_cost(t_stack **first_a, t_stack **first_b)
 	len_b = count_node(*first_b);
 	to_range = *first_a;
 	a = *first_a;
-	min_cost = calculate_cost_node(a, len_a, len_b);
+	min_cost = cost_node(a, *first_b, len_a, len_b);
 	while (a)
 	{
-		if (min_cost > calculate_cost_node(a, len_a, len_b))
+		if (min_cost > cost_node(a, *first_b,len_a, len_b))
 		{
-			min_cost = calculate_cost_node(a, len_a, len_b);
+			min_cost = cost_node(a, *first_b,len_a, len_b);
 			to_range = a;
 		}
 		a = a->next;
@@ -128,18 +131,18 @@ void	get_min_cost(t_stack **first_a, t_stack **first_b)
 
 void	launch_move_1(t_stack *to_range, t_stack **stack_a, t_stack **stack_b, int length_a, int length_b)
 {
-	unsigned int	mediane_a;
-	unsigned int	mediane_b;
+	unsigned int	median_a;
+	unsigned int	median_b;
 	unsigned int	index_a;
 	unsigned int	target_a;
 	unsigned int	move;
 
-	mediane_a = mediane(length_a);
-	mediane_b = mediane(length_b);
+	median_a = median(length_a);
+	median_b = median(length_b);
 	index_a = to_range->index;
 	target_a = to_range->target_index;
 	// r
-	if (index_a <= mediane_a && target_a <= mediane_b)
+	if (index_a <= median_a && target_a <= median_b)
 	{
 		if (index_a >= target_a)
 			move = target_a;
@@ -172,7 +175,7 @@ void	launch_move_1(t_stack *to_range, t_stack **stack_a, t_stack **stack_b, int 
 		}
 	}
 	// rr
-	else if (index_a > mediane_a && target_a > mediane_b)
+	else if (index_a > median_a && target_a > median_b)
 	{
 		if ((length_a - index_a) <= (length_b - target_a))
 			move = length_a - index_a;
@@ -206,7 +209,7 @@ void	launch_move_1(t_stack *to_range, t_stack **stack_a, t_stack **stack_b, int 
 	else
 	{
 		// pile A
-		if (index_a <= mediane_a)
+		if (index_a <= median_a)
 		{
 			while (index_a-- > 0)
 			{
@@ -214,7 +217,7 @@ void	launch_move_1(t_stack *to_range, t_stack **stack_a, t_stack **stack_b, int 
 				ft_putstr_fd("ra", FD);
 			}
 		}
-		else if (index_a > mediane_a)
+		else if (index_a > median_a)
 		{
 			index_a = length_a - index_a;
 			while (move-- > 0)
@@ -224,7 +227,7 @@ void	launch_move_1(t_stack *to_range, t_stack **stack_a, t_stack **stack_b, int 
 			}
 		}
 		// PILE B
-		if (target_a <= mediane_b)
+		if (target_a <= median_b)
 		{
 			while (target_a-- > 0)
 			{
@@ -232,7 +235,7 @@ void	launch_move_1(t_stack *to_range, t_stack **stack_a, t_stack **stack_b, int 
 				ft_putstr_fd("rb", FD);
 			}
 		}
-		else if (target_a > mediane_b)
+		else if (target_a > median_b)
 		{
 			move = length_b - target_a;
 			while (move-- > 0)
@@ -244,5 +247,5 @@ void	launch_move_1(t_stack *to_range, t_stack **stack_a, t_stack **stack_b, int 
 	}
 	push(stack_a, stack_b);
 	ft_putstr_fd("pb", FD);
-	insert_target_index(stack_a, stack_b);
+	// insert_target_index(stack_a, stack_b);
 }

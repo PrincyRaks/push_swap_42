@@ -87,7 +87,7 @@ int	main(int argc, char **argv)
 			push(&a, b);
 			ft_putstr_fd("pb", FD);
 		}
-		if (new_min_max(a, *b) && !is_desc(*b))
+		if ((is_max(a, *b) || is_min(a, *b)) && !is_desc(*b))
 		{
 			swap(b);
 			ft_putstr_fd("sb", FD);
@@ -116,7 +116,7 @@ int	main(int argc, char **argv)
 			*b = (*b)->next;
 		}
 		printf("TEST MOVE \n");
-		insert_target_index(&pile_a, &pile_b);
+		// insert_target_index(&pile_a, &pile_b);
 		get_min_cost(&pile_a, &pile_b);
 		get_min_cost(&pile_a, &pile_b);
 		get_min_cost(&pile_a, &pile_b);
@@ -124,11 +124,10 @@ int	main(int argc, char **argv)
 		printf("PILE de A:\n");
 		while (pile_a)
 		{
-			printf("value: %d |index: %d | next: %p | top: %p | bottom: %p | target index: %d\n", 
+			printf("value: %d |index: %d | next: %p | top: %p | bottom: %p\n", 
 				pile_a->value, pile_a->index,
 				pile_a->next, pile_a->top, 
-				pile_a->bottom,
-				pile_a->target_index);
+				pile_a->bottom);
 			pile_a = pile_a->next;
 		}
 		printf("\nPILE de B: \n");
