@@ -13,13 +13,6 @@
 #include "push_swap.h"
 #include <unistd.h>
 
-// void	print_move(char *move, char stack)
-// {
-// 	write (1, move, ft_strlen(move));
-// 	write (1, &stack, 1);
-// 	write (1 , "\n", 1);
-// }
-
 void	swap(t_stack **first)
 {
 	t_stack *node_next;
