@@ -1,21 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_dup.c                                      :+:      :+:    :+:   */
-/*                                                    +:+ +:+
-	+:+     */
-/*   By: rrakotos <rrakotos@student.42.fr>          +#+  +:+
-	+#+        */
-/*                                                +#+#+#+#+#+
-	+#+           */
-/*   Created: 2024/07/09 13:30:47 by rrakotos          #+#    #+#             */
-/*   Updated: 2024/07/12 16:56:22 by rrakotos         ###   ########.fr       */
+/*   check_input.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rrakotos <rrakotos@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/07/22 10:27:31 by rrakotos          #+#    #+#             */
+/*   Updated: 2024/07/22 10:27:31 by rrakotos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include <stdlib.h>
-
 
 int	strlen_tab(char **str)
 {
@@ -27,12 +23,26 @@ int	strlen_tab(char **str)
 	return (i);
 }
 
+int	is_empty(char *str)
+{
+	while (*str)
+	{
+		if (ft_isspace(*str))
+			str++;
+		else
+			return (0);
+	}
+	return (1);
+}
+
 char	*ft_strjoin_data(char *s1, char *s2)
 {
 	char *new_s;
 	char *tmp_s1;
 	size_t len;
 
+	if (is_empty(s2))
+		return (free(s1), NULL);
 	len = ft_strlen(s1) + ft_strlen(s2);
 	if (*s1 && *s2)
 		len++;
@@ -48,6 +58,27 @@ char	*ft_strjoin_data(char *s1, char *s2)
 		*(new_s++) = *(s2++);
 	free(s1);
 	return (new_s - len);
+}
+
+char	*join_argv(char **argv)
+{
+	int i;
+	char	*data;
+
+	i = 1;
+	data = ft_calloc(1,1);
+	while (argv[i])
+	{
+		data = ft_strjoin_data(data, argv[i++]);
+		if (!data)
+			print_error();
+	}
+	if (!check_number(data))
+	{
+		print_error();
+		free(data);
+	}
+	return (data);
 }
 
 long	*convert_int(char **str, int size)
@@ -148,14 +179,7 @@ t_stack	*init_data(char **argv)
 	t_stack *lst;
 
 	i = 1;
-	data = ft_calloc(1, 1);
-	while (argv[i])
-		data = ft_strjoin_data(data, argv[i++]);
-	if (!check_number(data))
-	{
-		print_error();
-		free(data);
-	}
+	data = join_argv(argv);
 	tab_str = ft_split(data);
 	if (!tab_str)
 	{

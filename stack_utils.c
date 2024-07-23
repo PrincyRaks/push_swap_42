@@ -2,14 +2,11 @@
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   stack_utils.c                                      :+:      :+:    :+:   */
-/*                                                    +:+ +:+
-	+:+     */
-/*   By: rrakotos <rrakotos@student.42.fr>          +#+  +:+
-	+#+        */
-/*                                                +#+#+#+#+#+
-	+#+           */
-/*   Created: 2024/07/10 15:36:08 by rrakotos          #+#    #+#             */
-/*   Updated: 2024/07/12 16:32:26 by rrakotos         ###   ########.fr       */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rrakotos <rrakotos@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/07/22 10:28:39 by rrakotos          #+#    #+#             */
+/*   Updated: 2024/07/22 10:28:39 by rrakotos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +23,7 @@ t_stack	*init_stack(long *tab_num, int size)
 	lst = NULL;
 	while (i < size)
 	{
-		ft_lstadd_back(&lst, create_node((int)tab_num[i]));
+		ft_lstadd_back(&lst, create_node((int)tab_num[i], i));
 		i++;
 	}
 	add_top_bottom(&lst, ft_lstlast(lst));
@@ -75,13 +72,14 @@ t_stack	*ft_lstlast(t_stack *lst)
 	return (NULL);
 }
 
-t_stack	*create_node(int number)
+t_stack	*create_node(int number,int index)
 {
 	t_stack *node;
 
 	node = (t_stack *)malloc(sizeof(t_stack));
 	if (!node)
 		return (NULL);
+	node->index = index;
 	node->value = number;
 	node->next = NULL;
 	return (node);
@@ -116,22 +114,19 @@ void	add_front(t_stack **lst, t_stack *node)
 	}
 }
 
-// void	load_stack(t_stack **stack)
-// {
-// 	int i;
-// 	t_stack *node;
+void	load_stack(t_stack **stack)
+{
+	unsigned int i;
+	t_stack *node;
 
-// 	node = *stack;
-// 	i = 0;
-// 	while (node)
-// 	{
-// 		// if (!node->next)
-// 		// 	break ;
-// 		// if (node->index >= node->next->index)
-// 		node->index = i;
-// 		node = node->next;
-// 		i++;
-// 	}
-// 	// node->index = i;
-// 	// add_top_bottom(stack, ft_lstlast(*stack));
-// }
+	node = *stack;
+	i = 0;
+	while (node->next)
+	{
+		node->index = i;
+		node = node->next;
+		i++;
+	}
+	node->index = i;
+	add_top_bottom(stack, node);
+}

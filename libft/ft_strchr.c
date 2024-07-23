@@ -3,12 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rrakotos <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: rrakotos <rrakotos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/21 13:52:14 by rrakotos          #+#    #+#             */
-/*   Updated: 2024/02/23 18:05:24 by rrakotos         ###   ########.fr       */
+/*   Created: 2024/07/22 10:26:56 by rrakotos          #+#    #+#             */
+/*   Updated: 2024/07/22 10:26:56 by rrakotos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "libft.h"
 
 char	*ft_strchr(const char *s)

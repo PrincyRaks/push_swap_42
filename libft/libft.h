@@ -2,14 +2,11 @@
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
-/*                                                    +:+ +:+        
-	+:+     */
-/*   By: rrakotos <rrakotos@student.42.fr>          +#+  +:+      
-	+#+        */
-/*                                                +#+#+#+#+#+  
-	+#+           */
-/*   Created: 2024/07/09 13:41:46 by rrakotos          #+#    #+#             */
-/*   Updated: 2024/07/10 10:00:29 by rrakotos         ###   ########.fr       */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rrakotos <rrakotos@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/07/22 10:27:11 by rrakotos          #+#    #+#             */
+/*   Updated: 2024/07/22 10:27:11 by rrakotos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +16,10 @@
 # include <stddef.h>
 # include <stdio.h>
 # include <stdlib.h>
+
+# ifndef FD
+#  define FD 1
+# endif
 
 long	ft_atoi(const char *nptr);
 int	ft_isdigit(int c);
