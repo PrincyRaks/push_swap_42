@@ -44,13 +44,16 @@ void	exec_move(void (*move)(t_stack**), t_stack **data,char *msg, int n)
 	}
 }
 // même mediane
-void	same_move(void (*move)(t_stack**), t_stack **a, t_stack **b,int count, char *msg)
+void	same_move(void (*move)(t_stack**), t_stack **a, t_stack **b,int count)
 {
 	while (count-- > 0)
 	{
 		move(a);
 		move(b);
-		ft_putstr_fd(msg, FD);
+		if (move == rotate)
+			ft_putstr_fd("rr", FD);
+		else if (move == r_rotate)
+			ft_putstr_fd("rrr", FD);
 	}
 }
 
