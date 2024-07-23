@@ -43,9 +43,16 @@ void	exec_move(void (*move)(t_stack**), t_stack **data,char *msg, int n)
 		ft_putstr_fd(msg, FD);
 	}
 }
-
-void	same_move(move, pila a, pile b, count)
-{}
+// même mediane
+void	same_move(void (*move)(t_stack**), t_stack **a, t_stack **b,int count, char *msg)
+{
+	while (count-- > 0)
+	{
+		move(a);
+		move(b);
+		ft_putstr_fd(msg, FD);
+	}
+}
 
 void	launch_move_1(t_stack *to_range, t_stack **stack_b, int length_a, int length_b)
 {
