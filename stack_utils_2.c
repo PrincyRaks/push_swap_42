@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack_utils_2.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rrakotos <rrakotos@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rrakotos <rrakotos@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/25 14:01:17 by rrakotos          #+#    #+#             */
-/*   Updated: 2024/07/25 14:01:43 by rrakotos         ###   ########.fr       */
+/*   Created: 2024/07/25 15:32:40 by rrakotos          #+#    #+#             */
+/*   Updated: 2024/07/25 15:35:59 by rrakotos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

@@ -3,12 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   check_stack.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rrakotos <rrakotos@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rrakotos <rrakotos@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/25 13:12:12 by rrakotos          #+#    #+#             */
-/*   Updated: 2024/07/25 13:12:12 by rrakotos         ###   ########.fr       */
+/*   Created: 2024/07/25 15:10:05 by rrakotos          #+#    #+#             */
+/*   Updated: 2024/07/25 15:11:47 by rrakotos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "push_swap.h"
 
 int	is_asc(t_stack *first)

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   print_error.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rrakotos <rrakotos@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rrakotos <rrakotos@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/09 20:04:53 by marvin            #+#    #+#             */
-/*   Updated: 2024/07/10 09:46:24 by rrakotos         ###   ########.fr       */
+/*   Created: 2024/07/25 15:32:08 by rrakotos          #+#    #+#             */
+/*   Updated: 2024/07/25 15:32:08 by rrakotos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

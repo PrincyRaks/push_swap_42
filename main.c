@@ -85,18 +85,18 @@
 // 		while (i-- > 0)
 // 		{
 // 			push(&a, b);
-// 			ft_putstr_fd("pb", FD);
+// 			ft_putstr_fd("pb");
 // 		}
 // 		if ((is_max(a, *b) || is_min(a, *b)) && !is_desc(*b))
 // 		{
 // 			swap(b);
-// 			ft_putstr_fd("sb", FD);
+// 			ft_putstr_fd("sb");
 // 		}
 // 		push(&a, b);
-// 		ft_putstr_fd("pb", FD);
+// 		ft_putstr_fd("pb");
 // 		if (!is_desc(*b))
 // 		{
-// 			ft_putstr_fd("pb", FD);
+// 			ft_putstr_fd("pb");
 // 			swap(b);
 // 		}
 // 		pile_a = a;
@@ -149,7 +149,6 @@ int	main(int argc, char **argv)
 	t_stack **b;
 	t_stack *pile_a;
 	t_stack *pile_b;
-	t_stack	*range;
 	int i;
 
 	if (argc > 1)
@@ -160,18 +159,18 @@ int	main(int argc, char **argv)
 		while (i-- > 0)
 		{
 			push(&a, b);
-			ft_putstr_fd("pb", FD);
+			ft_putstr_fd("pb");
 		}
 		if ((is_max(a, *b) || is_min(a, *b)) && !is_desc(*b))
 		{
 			swap(b);
-			ft_putstr_fd("sb", FD);
+			ft_putstr_fd("sb");
 		}
 		push(&a, b);
-		ft_putstr_fd("pb", FD);
+		ft_putstr_fd("pb");
 		if (!is_desc(*b))
 		{
-			ft_putstr_fd("pb", FD);
+			ft_putstr_fd("pb");
 			swap(b);
 		}
 		pile_a = a;

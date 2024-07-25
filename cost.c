@@ -3,12 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   cost.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rrakotos <rrakotos@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rrakotos <rrakotos@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/25 13:38:00 by rrakotos          #+#    #+#             */
-/*   Updated: 2024/07/25 13:51:52 by rrakotos         ###   ########.fr       */
+/*   Created: 2024/07/25 15:12:26 by rrakotos          #+#    #+#             */
+/*   Updated: 2024/07/25 15:18:22 by rrakotos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "push_swap.h"
 #include <stdlib.h>
 
@@ -21,8 +22,8 @@ int	get_target_index(t_stack *node_a, t_stack *first_b)
 	stack_b = first_b;
 	while (first_b)
 	{
-		if ((node_a->value > first_b->value) && (min_index == NULL
-				|| first_b->value > min_index->value))
+		if ((node_a->value > first_b->value)
+			&& (min_index == NULL || first_b->value > min_index->value))
 			min_index = first_b;
 		first_b = first_b->next;
 	}

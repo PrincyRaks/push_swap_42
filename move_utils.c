@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   move_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rrakotos <rrakotos@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rrakotos <rrakotos@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/22 10:28:10 by rrakotos          #+#    #+#             */
-/*   Updated: 2024/07/22 10:28:10 by rrakotos         ###   ########.fr       */
+/*   Created: 2024/07/25 15:31:47 by rrakotos          #+#    #+#             */
+/*   Updated: 2024/07/25 15:31:47 by rrakotos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

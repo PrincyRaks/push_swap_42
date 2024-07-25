@@ -71,6 +71,10 @@ void	exec_move(void (*move)(t_stack **), t_stack **data, char *msg, int n);
 void	exec_both(void (*move)(t_stack **), t_stack **a, t_stack **b, int n);
 void	sort_move_1(t_stack *to_range, t_stack **stack_a, t_stack **stack_b);
 
+void	move_both(t_stack *to_range, t_stack **stack_a, t_stack **stack_b);
+void	handle_stack_a_moves(t_stack *to_range, t_stack **stack_a, int len_a);
+void	handle_stack_b_moves(t_stack *to_range, t_stack **stack_b, int len_b);
+
 void	sort_three(t_stack **a);
 
 #endif

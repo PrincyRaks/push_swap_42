@@ -3,12 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   sort_3.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rrakotos <rrakotos@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rrakotos <rrakotos@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/25 13:30:22 by rrakotos          #+#    #+#             */
-/*   Updated: 2024/07/25 13:30:22 by rrakotos         ###   ########.fr       */
+/*   Created: 2024/07/25 15:32:18 by rrakotos          #+#    #+#             */
+/*   Updated: 2024/07/25 15:32:18 by rrakotos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "push_swap.h"
 
 void	sort_three(t_stack **a)

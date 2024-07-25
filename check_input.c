@@ -3,12 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   check_input.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rrakotos <rrakotos@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rrakotos <rrakotos@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/25 13:24:47 by rrakotos          #+#    #+#             */
-/*   Updated: 2024/07/25 13:24:47 by rrakotos         ###   ########.fr       */
+/*   Created: 2024/07/25 15:09:47 by rrakotos          #+#    #+#             */
+/*   Updated: 2024/07/25 15:09:47 by rrakotos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "push_swap.h"
 #include <stdlib.h>
 

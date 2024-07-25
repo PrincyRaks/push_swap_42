@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_data.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rrakotos <rrakotos@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rrakotos <rrakotos@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/25 13:20:24 by rrakotos          #+#    #+#             */
-/*   Updated: 2024/07/25 14:00:11 by rrakotos         ###   ########.fr       */
+/*   Updated: 2024/07/25 15:27:35 by rrakotos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ t_stack	*init_stack(long *tab_num, int size)
 	lst = NULL;
 	while (i < size)
 	{
-		ft_lstadd_back(&lst, create_node((int)tab_num[i], i));
+		ft_lstadd_back(&lst, create_node(tab_num[i], i));
 		i++;
 	}
 	add_top_bottom(&lst, ft_lstlast(lst));
