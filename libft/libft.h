@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rrakotos <rrakotos@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rrakotos <rrakotos@student.42antanana      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/22 10:27:11 by rrakotos          #+#    #+#             */
-/*   Updated: 2024/07/22 10:27:11 by rrakotos         ###   ########.fr       */
+/*   Created: 2024/07/25 14:32:00 by rrakotos          #+#    #+#             */
+/*   Updated: 2024/07/25 14:32:50 by rrakotos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,14 +22,14 @@
 # endif
 
 long	ft_atoi(const char *nptr);
-int	ft_isdigit(int c);
-int ft_isspace(char c);
+int		ft_isdigit(int c);
+int		ft_isspace(char c);
 char	**ft_split(char const *s);
 size_t	ft_strlen(const char *s);
 char	*ft_strchr(const char *s);
 void	*ft_calloc(size_t elementCount, size_t elementSize);
 void	ft_bzero(void *s, size_t n);
-int	ft_isalpha(int c);
-void	ft_putstr_fd(char *s, int fd);
+int		ft_isalpha(int c);
+void	ft_putstr_fd(char *s);
 
 #endif

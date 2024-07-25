@@ -5,17 +5,16 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: rrakotos <rrakotos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/22 10:27:31 by rrakotos          #+#    #+#             */
-/*   Updated: 2024/07/22 10:27:31 by rrakotos         ###   ########.fr       */
+/*   Created: 2024/07/25 13:24:47 by rrakotos          #+#    #+#             */
+/*   Updated: 2024/07/25 13:24:47 by rrakotos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 #include "push_swap.h"
 #include <stdlib.h>
 
 int	strlen_tab(char **str)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (str[i] != NULL)
@@ -37,9 +36,9 @@ int	is_empty(char *str)
 
 char	*ft_strjoin_data(char *s1, char *s2)
 {
-	char *new_s;
-	char *tmp_s1;
-	size_t len;
+	char	*new_s;
+	char	*tmp_s1;
+	size_t	len;
 
 	if (is_empty(s2))
 		return (free(s1), NULL);
@@ -48,7 +47,7 @@ char	*ft_strjoin_data(char *s1, char *s2)
 		len++;
 	new_s = ft_calloc((len + 1), 1);
 	if (!new_s)
-		return(free(s1), NULL);
+		return (free(s1), NULL);
 	tmp_s1 = s1;
 	while (*tmp_s1)
 		*(new_s++) = *(tmp_s1++);
@@ -60,57 +59,12 @@ char	*ft_strjoin_data(char *s1, char *s2)
 	return (new_s - len);
 }
 
-char	*join_argv(char **argv)
-{
-	int i;
-	char	*data;
-
-	i = 1;
-	data = ft_calloc(1,1);
-	while (argv[i])
-	{
-		data = ft_strjoin_data(data, argv[i++]);
-		if (!data)
-			print_error();
-	}
-	if (!check_number(data))
-	{
-		print_error();
-		free(data);
-	}
-	return (data);
-}
-
-long	*convert_int(char **str, int size)
-{
-	long *tab_n;
-	int i;
-
-	tab_n = (long *)malloc(sizeof(long) * size);
-	if (!tab_n)
-		return (free(str), NULL);
-	i = 0;
-	while (str[i])
-	{
-		tab_n[i] = ft_atoi(str[i]);
-		if (tab_n[i] > 2147483647 || tab_n[i] < -2147483648)
-		{
-			print_error();
-			free(str);
-			return (free(tab_n), NULL);
-		}
-		i++;
-	}
-	free(str);
-	return (tab_n);
-}
-
 int	not_dup(long *number, int size)
 {
-	int i;
-	int j;
-	int count;
-	long *dup;
+	int		i;
+	int		j;
+	int		count;
+	long	*dup;
 
 	i = 0;
 	dup = number;
@@ -133,13 +87,13 @@ int	not_dup(long *number, int size)
 
 int	check_number(char *s)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (s[i] != '\0')
 	{
-		if ((!ft_isdigit(s[i]) && !ft_isspace(s[i])) 
-			&& (s[i] != '-' && s[i] != '+'))
+		if ((!ft_isdigit(s[i]) && !ft_isspace(s[i])) && (s[i] != '-'
+				&& s[i] != '+'))
 			return (0);
 		while (ft_isspace(s[i]))
 			i++;
@@ -155,38 +109,4 @@ int	check_number(char *s)
 			i++;
 	}
 	return (1);
-}
-
-long	*check_dup(char **data, int size)
-{
-	long *number;
-
-	number = convert_int(data, size);
-	if (!not_dup(number, size))
-	{
-		print_error();
-		free(data);
-		free(number);
-	}
-	return (number);
-}
-
-t_stack	*init_data(char **argv)
-{
-	int i;
-	char *data;
-	char **tab_str;
-	t_stack *lst;
-
-	i = 1;
-	data = join_argv(argv);
-	tab_str = ft_split(data);
-	if (!tab_str)
-	{
-		free(tab_str);
-		return (NULL);
-	}
-	i = strlen_tab(tab_str);
-	lst = init_stack(check_dup(tab_str, i), i);
-	return (lst);
 }

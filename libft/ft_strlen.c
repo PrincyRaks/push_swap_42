@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rrakotos <rrakotos@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rrakotos <rrakotos@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/22 10:27:04 by rrakotos          #+#    #+#             */
-/*   Updated: 2024/07/22 10:27:04 by rrakotos         ###   ########.fr       */
+/*   Created: 2024/07/25 14:17:55 by rrakotos          #+#    #+#             */
+/*   Updated: 2024/07/25 14:17:55 by rrakotos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

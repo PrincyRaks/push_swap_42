@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isalpha.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rrakotos <rrakotos@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rrakotos <rrakotos@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/19 10:16:27 by rrakotos          #+#    #+#             */
-/*   Updated: 2024/07/09 16:16:36 by rrakotos         ###   ########.fr       */
+/*   Created: 2024/07/25 14:17:10 by rrakotos          #+#    #+#             */
+/*   Updated: 2024/07/25 14:17:10 by rrakotos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isdigit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rrakotos <rrakotos@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rrakotos <rrakotos@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/22 10:26:19 by rrakotos          #+#    #+#             */
-/*   Updated: 2024/07/22 10:26:19 by rrakotos         ###   ########.fr       */
+/*   Created: 2024/07/25 14:17:15 by rrakotos          #+#    #+#             */
+/*   Updated: 2024/07/25 14:17:15 by rrakotos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

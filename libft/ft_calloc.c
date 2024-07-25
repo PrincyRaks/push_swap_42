@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rrakotos <rrakotos@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rrakotos <rrakotos@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/23 12:12:36 by rrakotos          #+#    #+#             */
-/*   Updated: 2024/07/10 09:54:24 by rrakotos         ###   ########.fr       */
+/*   Created: 2024/07/25 14:17:02 by rrakotos          #+#    #+#             */
+/*   Updated: 2024/07/25 14:17:02 by rrakotos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
