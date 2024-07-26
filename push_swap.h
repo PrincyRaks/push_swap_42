@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rrakotos <rrakotos@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rrakotos <rrakotos@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/25 10:51:03 by rrakotos          #+#    #+#             */
-/*   Updated: 2024/07/25 10:51:03 by rrakotos         ###   ########.fr       */
+/*   Created: 2024/07/26 13:58:08 by rrakotos          #+#    #+#             */
+/*   Updated: 2024/07/26 13:58:08 by rrakotos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,7 @@ int	is_desc(t_stack *first);
 int	is_max(t_stack *node, t_stack *first);
 int	is_min(t_stack *node, t_stack *first);
 t_stack	*get_value_max(t_stack *first);
+t_stack	*get_value_min(t_stack *first);
 
 int	get_target_index(t_stack *node_a, t_stack *first_b);
 // void	insert_target_index(t_stack **a, t_stack **b);
@@ -64,7 +65,7 @@ int	cost_both(int index, int target_i, int len_a, int len_b);
 int	cost_individual(int index, int len);
 int	cost_node(t_stack *node_a, t_stack *first_b, int len_a, int len_b);
 // t_stack	*get_min_cost(t_stack *first_a, t_stack *first_b);
-void	get_min_cost(t_stack **first_a, t_stack **first_b);
+t_stack	*get_min_cost(t_stack **first_a, t_stack **first_b);
 // void	sort_move_1(t_stack *to_range, t_stack **stack_b, int len_a,int len_b);
 
 void	exec_move(void (*move)(t_stack **), t_stack **data, char *msg, int n);
@@ -76,5 +77,11 @@ void	handle_stack_a_moves(t_stack *to_range, t_stack **stack_a, int len_a);
 void	handle_stack_b_moves(t_stack *to_range, t_stack **stack_b, int len_b);
 
 void	sort_three(t_stack **a);
+int	sortable(t_stack *a);
+// void    push_swap(t_stack **a);
+void	push_to_b(t_stack *to_range, t_stack **stack_a, t_stack **stack_b);
+// void	sort_stack(t_stack **a);
 
+void	push_swap(t_stack **a, t_stack **b);
+void	sort_stack(t_stack **a, t_stack **b);
 #endif

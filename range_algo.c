@@ -6,7 +6,7 @@
 /*   By: rrakotos <rrakotos@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/18 09:48:36 by rrakotos          #+#    #+#             */
-/*   Updated: 2024/07/25 15:50:28 by rrakotos         ###   ########.fr       */
+/*   Updated: 2024/07/26 14:56:05 by rrakotos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@
 // 	}
 // }
 
-void	push_all_b(t_stack *to_range, t_stack **stack_a, t_stack **stack_b)
+void	push_to_b(t_stack *to_range, t_stack **stack_a, t_stack **stack_b)
 {
 	int	len_a;
 	int	len_b;
@@ -40,7 +40,7 @@ void	push_all_b(t_stack *to_range, t_stack **stack_a, t_stack **stack_b)
 	ft_putstr_fd("pb");
 }
 
-void	get_min_cost(t_stack **first_a, t_stack **first_b)
+t_stack	*get_min_cost(t_stack **first_a, t_stack **first_b)
 {
 	int		len_a;
 	int		len_b;
@@ -62,9 +62,7 @@ void	get_min_cost(t_stack **first_a, t_stack **first_b)
 		}
 		a = a->next;
 	}
-	if (to_range)
-		push_all_b(to_range, first_a, first_b);
-	// return (to_range);
+	return (to_range);
 }
 
 // void	sort_move_1(t_stack *to_range, t_stack **stack_a, t_stack **stack_b,

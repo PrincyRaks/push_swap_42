@@ -55,19 +55,3 @@ int	is_min(t_stack *node, t_stack *first)
 	}
 	return (1);
 }
-
-t_stack	*get_value_max(t_stack *first)
-{
-	t_stack	*max;
-
-	if (!first)
-		return (NULL);
-	max = first;
-	while (first)
-	{
-		if (max->value < first->value)
-			max = first;
-		first = first->next;
-	}
-	return (max);
-}

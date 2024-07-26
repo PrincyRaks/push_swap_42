@@ -6,7 +6,7 @@
 /*   By: rrakotos <rrakotos@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/25 15:32:40 by rrakotos          #+#    #+#             */
-/*   Updated: 2024/07/25 15:35:59 by rrakotos         ###   ########.fr       */
+/*   Updated: 2024/07/26 13:36:50 by rrakotos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,4 +40,36 @@ void	load_stack(t_stack **stack)
 	}
 	node->index = i;
 	add_top_bottom(stack, node);
+}
+
+t_stack	*get_value_max(t_stack *first)
+{
+	t_stack	*max;
+
+	if (!first)
+		return (NULL);
+	max = first;
+	while (first)
+	{
+		if (max->value < first->value)
+			max = first;
+		first = first->next;
+	}
+	return (max);
+}
+
+t_stack	*get_value_min(t_stack *first)
+{
+	t_stack	*min;
+
+	if (!first)
+		return (NULL);
+	min = first;
+	while (first)
+	{
+		if (min->value > first->value)
+			min = first;
+		first = first->next;
+	}
+	return (min);
 }

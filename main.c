@@ -155,24 +155,8 @@ int	main(int argc, char **argv)
 	{
 		i = 2;
 		a = init_data(argv);
+		// printf("sort ve : %d \n", sortable(a));
 		b = (t_stack **)malloc(sizeof(t_stack *));
-		while (i-- > 0)
-		{
-			push(&a, b);
-			ft_putstr_fd("pb");
-		}
-		if ((is_max(a, *b) || is_min(a, *b)) && !is_desc(*b))
-		{
-			swap(b);
-			ft_putstr_fd("sb");
-		}
-		push(&a, b);
-		ft_putstr_fd("pb");
-		if (!is_desc(*b))
-		{
-			ft_putstr_fd("pb");
-			swap(b);
-		}
 		pile_a = a;
 		pile_b = *b;
 		printf("PILE de A: \n");
@@ -190,11 +174,7 @@ int	main(int argc, char **argv)
 			*b = (*b)->next;
 		}
 		printf("TEST MOVE \n");
-		// insert_target_index(&pile_a, &pile_b);
-		get_min_cost(&pile_a, &pile_b);
-		get_min_cost(&pile_a, &pile_b);
-		// get_min_cost(&pile_a, &pile_b);
-		// get_min_cost(&pile_a, &pile_b);
+		push_swap(&pile_a, &pile_b);
 		printf("PILE de A:\n");
 		while (pile_a)
 		{
