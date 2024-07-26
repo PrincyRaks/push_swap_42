@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: rrakotos <rrakotos@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/26 13:58:08 by rrakotos          #+#    #+#             */
-/*   Updated: 2024/07/26 13:58:08 by rrakotos         ###   ########.fr       */
+/*   Created: 2024/07/26 15:32:31 by rrakotos          #+#    #+#             */
+/*   Updated: 2024/07/26 15:32:31 by rrakotos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ typedef struct s_stack
 {
 	int value;
 	int index;
-	// int target_index;
 	struct s_stack *top;
 	struct s_stack *bottom;
 	struct s_stack *next;
@@ -64,13 +63,10 @@ int	median(int length);
 int	cost_both(int index, int target_i, int len_a, int len_b);
 int	cost_individual(int index, int len);
 int	cost_node(t_stack *node_a, t_stack *first_b, int len_a, int len_b);
-// t_stack	*get_min_cost(t_stack *first_a, t_stack *first_b);
-t_stack	*get_min_cost(t_stack **first_a, t_stack **first_b);
-// void	sort_move_1(t_stack *to_range, t_stack **stack_b, int len_a,int len_b);
+t_stack	*get_min_cost(t_stack *first_a, t_stack *first_b);
 
 void	exec_move(void (*move)(t_stack **), t_stack **data, char *msg, int n);
 void	exec_both(void (*move)(t_stack **), t_stack **a, t_stack **b, int n);
-void	sort_move_1(t_stack *to_range, t_stack **stack_a, t_stack **stack_b);
 
 void	move_both(t_stack *to_range, t_stack **stack_a, t_stack **stack_b);
 void	handle_stack_a_moves(t_stack *to_range, t_stack **stack_a, int len_a);
@@ -84,4 +80,6 @@ void	push_to_b(t_stack *to_range, t_stack **stack_a, t_stack **stack_b);
 
 void	push_swap(t_stack **a, t_stack **b);
 void	sort_stack(t_stack **a, t_stack **b);
+void	range_algo(t_stack **a, t_stack **b);
+
 #endif

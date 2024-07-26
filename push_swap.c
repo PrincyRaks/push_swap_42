@@ -6,7 +6,7 @@
 /*   By: rrakotos <rrakotos@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/25 15:37:11 by rrakotos          #+#    #+#             */
-/*   Updated: 2024/07/26 15:26:56 by rrakotos         ###   ########.fr       */
+/*   Updated: 2024/07/26 15:52:00 by rrakotos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,7 @@ void	sort_stack(t_stack **a, t_stack **b)
 		exec_move(swap, b, "sb", 1);
 	push(a, b);
 	ft_putstr_fd("pb");
+    range_algo(a, b);
 }
 
 void	push_swap(t_stack **a, t_stack **b)
