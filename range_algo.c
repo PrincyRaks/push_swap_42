@@ -74,4 +74,6 @@ void	range_algo(t_stack **a, t_stack **b)
 		min_cost = get_min_cost(*a, *b);
 		push_to_b(min_cost, a, b);
 	}
+	// sort stack a: tant que a est asc : verifier si sortable
+	// push_back_a : target b -> max value
 }

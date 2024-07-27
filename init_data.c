@@ -19,9 +19,9 @@ long	*check_dup(char **data, int size)
 	number = convert_int(data, size);
 	if (!not_dup(number, size))
 	{
-		print_error();
 		free(data);
 		free(number);
+		print_error();
 	}
 	return (number);
 }
@@ -40,9 +40,9 @@ long	*convert_int(char **str, int size)
 		tab_n[i] = ft_atoi(str[i]);
 		if (tab_n[i] > 2147483647 || tab_n[i] < -2147483648)
 		{
-			print_error();
 			free(str);
-			return (free(tab_n), NULL);
+			free(tab_n);
+			print_error();
 		}
 		i++;
 	}
@@ -61,12 +61,15 @@ char	*join_argv(char **argv)
 	{
 		data = ft_strjoin_data(data, argv[i++]);
 		if (!data)
+		{
+			free(data);
 			print_error();
+		}
 	}
 	if (!check_number(data))
 	{
-		print_error();
 		free(data);
+		print_error();
 	}
 	return (data);
 }
