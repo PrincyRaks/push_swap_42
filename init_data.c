@@ -33,7 +33,7 @@ long	*convert_int(char **str, int size)
 
 	tab_n = (long *)malloc(sizeof(long) * size);
 	if (!tab_n)
-		return (free(str), NULL);
+		return (NULL);
 	i = 0;
 	while (str[i])
 	{
@@ -57,14 +57,14 @@ char	*join_argv(char **argv)
 
 	i = 1;
 	data = ft_calloc(1, 1);
+	if (!data)
+		print_error();
 	while (argv[i])
 	{
-		data = ft_strjoin_data(data, argv[i++]);
+		data = ft_strjoin_data(data, argv[i]);
 		if (!data)
-		{
-			free(data);
 			print_error();
-		}
+		i++;
 	}
 	if (!check_number(data))
 	{
@@ -98,7 +98,6 @@ t_stack	*init_data(char **argv)
 	char	**tab_str;
 	t_stack	*lst;
 
-	i = 1;
 	data = join_argv(argv);
 	tab_str = ft_split(data);
 	if (!tab_str)

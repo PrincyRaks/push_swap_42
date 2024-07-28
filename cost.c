@@ -13,53 +13,24 @@
 #include "push_swap.h"
 #include <stdlib.h>
 
-int	get_target_index(t_stack *node_a, t_stack *first_b)
+int	cost_both(int index, int target, int len_1, int len_2)
 {
-	t_stack	*min_index;
-	t_stack	*stack_b;
+	int	median_1;
+	int	median_2;
 
-	min_index = NULL;
-	stack_b = first_b;
-	while (first_b)
-	{
-		if ((node_a->value > first_b->value)
-			&& (min_index == NULL || first_b->value > min_index->value))
-			min_index = first_b;
-		first_b = first_b->next;
-	}
-	if (!min_index)
-		return ((get_value_max(stack_b))->index);
-	return (min_index->index);
-}
-
-int	median(int length)
-{
-	int	result;
-
-	result = length;
-	if (result % 2 != 0)
-		return ((result / 2) + 1);
-	return (result / 2);
-}
-
-int	cost_both(int index, int target, int len_a, int len_b)
-{
-	int	median_a;
-	int	median_b;
-
-	median_a = median(len_a);
-	median_b = median(len_b);
-	if (index <= median_a && target <= median_b)
+	median_1 = median(len_1);
+	median_2 = median(len_2);
+	if (index <= median_1 && target <= median_2)
 	{
 		if (index >= target)
 			return (index + 1);
 		return (target + 1);
 	}
-	if (index > median_a && target > median_b)
+	if (index > median_1 && target > median_2)
 	{
-		if ((len_a - index) >= (len_b - target))
-			return (len_a - index + 1);
-		return (len_b - target + 1);
+		if ((len_1 - index) >= (len_2 - target))
+			return (len_1 - index + 1);
+		return (len_2 - target + 1);
 	}
 	return (0);
 }
@@ -74,17 +45,32 @@ int	cost_individual(int index, int len)
 	return (len - index);
 }
 
-int	cost_node(t_stack *node_a, t_stack *first_b, int len_a, int len_b)
+int	cost_node_a(t_stack *node_a, t_stack *first_b, int len_a, int len_b)
 {
 	int	cost_1;
 	int	cost_2;
-	int	target_i;
+	int	target_a;
 
-	target_i = get_target_index(node_a, first_b);
-	cost_1 = cost_both(node_a->index, target_i, len_a, len_b);
+	target_a = target_min_index(node_a, first_b);
+	cost_1 = cost_both(node_a->index, target_a, len_a, len_b);
 	if (cost_1 > 0)
 		return (cost_1);
 	cost_1 = cost_individual(node_a->index, len_a);
-	cost_2 = cost_individual(target_i, len_b);
+	cost_2 = cost_individual(target_a, len_b);
+	return (cost_1 + cost_2 + 1);
+}
+
+int	cost_node_b(t_stack *node_b, t_stack *first_a, int len_b, int len_a)
+{
+	int	cost_1;
+	int	cost_2;
+	int	target_b;
+
+	target_b = target_max_index(node_b, first_a);
+	cost_1 = cost_both(node_b->index, target_b, len_b, len_a);
+	if (cost_1 > 0)
+		return (cost_1);
+	cost_1 = cost_individual(node_b->index, len_b);
+	cost_2 = cost_individual(target_b, len_a);
 	return (cost_1 + cost_2 + 1);
 }

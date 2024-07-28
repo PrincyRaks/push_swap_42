@@ -9,8 +9,23 @@
 /*   Updated: 2024/07/26 15:52:00 by rrakotos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 #include "push_swap.h"
+
+void	free_list(t_stack **node)
+{
+	t_stack	*current;
+	t_stack	*n;
+
+	n = *node;
+	while (current)
+	{
+		current = (*node)->next;
+		free(n);
+		n = current;
+	}
+	free(node);
+	print_error();
+}
 
 int	sortable(t_stack *a)
 {
@@ -23,9 +38,6 @@ int	sortable(t_stack *a)
 	node_top = a->top;
 	if (!is_asc(node_min))
 		return (0);
-	// RAH ITY 7 6 8 9 2 3 4 5
-	// if ((node_top->value > node_top->next->value) &&node_top->top)
-	//     exec_move(swap, a, "sa", 1);
 	while (node_top->next && (node_top != node_min))
 	{
 		if (node_top->next != node_min
@@ -44,10 +56,7 @@ void	sort_stack(t_stack **a, t_stack **b)
 
 	// b = (t_stack **)malloc(sizeof(t_stack *));
 	if (!b)
-	{
-		free(a);
-		exit(1);
-	}
+		free_list(a);
 	i = 2;
 	while (i-- > 0)
 	{

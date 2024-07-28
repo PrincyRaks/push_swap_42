@@ -22,11 +22,11 @@ static size_t	count_words(char const *s)
 	len = 0;
 	while (*s)
 	{
-		while (*s == 32 || (*s >= 9 && *s <= 13))
+		while (ft_isspace(*s))
 			s++;
 		if (*s)
 			len++;
-		while ((*s != 32 && *s) && (*s < 9 || *s > 13))
+		while (*s && !ft_isspace(*s))
 			s++;
 	}
 	return (len);
@@ -67,7 +67,7 @@ char	**ft_split(char const *s)
 	i = 0;
 	while (*s)
 	{
-		while (*s == 32 || (*s >= 9 && *s <= 13))
+		while (ft_isspace(*s))
 			s++;
 		if (*s)
 		{
@@ -76,7 +76,7 @@ char	**ft_split(char const *s)
 				free(list_w);
 			i++;
 		}
-		while ((*s != 32 && *s) && (*s < 9 || *s > 13))
+		while (*s && !ft_isspace(*s))
 			s++;
 	}
 	list_w[i] = NULL;

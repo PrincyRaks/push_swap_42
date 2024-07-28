@@ -1,6 +1,5 @@
 CFLAGS= -Wall -Werror -Wextra
-SRCS= check_dup.c \
-	stack_utils.c \
+SRCS= stack_utils.c \
 	move_utils.h \
 	main.c 
 

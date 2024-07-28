@@ -2,9 +2,12 @@
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   check_input.c                                      :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: rrakotos <rrakotos@student.42antananari    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
+/*                                                    +:+ +:+        
+	+:+     */
+/*   By: rrakotos <rrakotos@student.42antananari    +#+  +:+      
+	+#+        */
+/*                                                +#+#+#+#+#+  
+	+#+           */
 /*   Created: 2024/07/25 15:09:47 by rrakotos          #+#    #+#             */
 /*   Updated: 2024/07/25 15:09:47 by rrakotos         ###   ########.fr       */
 /*                                                                            */
@@ -13,9 +16,10 @@
 #include "push_swap.h"
 #include <stdlib.h>
 
+
 int	strlen_tab(char **str)
 {
-	int	i;
+	int i;
 
 	i = 0;
 	while (str[i] != NULL)
@@ -37,12 +41,12 @@ int	is_empty(char *str)
 
 char	*ft_strjoin_data(char *s1, char *s2)
 {
-	char	*new_s;
-	char	*tmp_s1;
-	size_t	len;
+	char *new_s;
+	char *tmp_s1;
+	size_t len;
 
 	if (is_empty(s2))
-		return (free(s1), NULL);
+		return (free(s1),NULL);
 	len = ft_strlen(s1) + ft_strlen(s2);
 	if (*s1 && *s2)
 		len++;
@@ -60,12 +64,12 @@ char	*ft_strjoin_data(char *s1, char *s2)
 	return (new_s - len);
 }
 
-int	not_dup(long *number, int size)
+int	not_dup(long *number, unsigned int size)
 {
-	int		i;
-	int		j;
-	int		count;
-	long	*dup;
+	unsigned int i;
+	unsigned int j;
+	int count;
+	long *dup;
 
 	i = 0;
 	dup = number;
@@ -88,7 +92,7 @@ int	not_dup(long *number, int size)
 
 int	check_number(char *s)
 {
-	int	i;
+	int i;
 
 	i = 0;
 	while (s[i] != '\0')
