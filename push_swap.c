@@ -9,6 +9,7 @@
 /*   Updated: 2024/07/26 15:52:00 by rrakotos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "push_swap.h"
 
 void	free_list(t_stack **node)
@@ -37,6 +38,8 @@ int	sortable(t_stack *a)
 	node_min = get_value_min(a);
 	node_top = a->top;
 	if (!is_asc(node_min))
+		return (0);
+	if (node_top->value < node_top->bottom->value)
 		return (0);
 	while (node_top->next && (node_top != node_min))
 	{
