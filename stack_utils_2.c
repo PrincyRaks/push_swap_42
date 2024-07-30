@@ -30,6 +30,8 @@ void	load_stack(t_stack **stack)
 	int i;
 	t_stack *node;
 
+	if (!*stack)
+		return ;
 	node = *stack;
 	i = 0;
 	while (node->next)

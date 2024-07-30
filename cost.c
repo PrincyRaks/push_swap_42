@@ -15,22 +15,17 @@
 
 int	cost_both(int index, int target, int len_1, int len_2)
 {
-	int	median_1;
-	int	median_2;
-
-	median_1 = median(len_1);
-	median_2 = median(len_2);
-	if (index <= median_1 && target <= median_2)
+	if (index <= (len_1 / 2) && target <= (len_2 / 2))
 	{
 		if (index >= target)
-			return (index + 1);
-		return (target + 1);
+			return (index);
+		return (target);
 	}
-	if (index > median_1 && target > median_2)
+	if (index > (len_1 / 2) && target > (len_2 / 2))
 	{
 		if ((len_1 - index) >= (len_2 - target))
-			return (len_1 - index + 1);
-		return (len_2 - target + 1);
+			return (len_1 - index);
+		return (len_2 - target);
 	}
 	return (0);
 }
@@ -40,7 +35,7 @@ int	cost_individual(int index, int len)
 	int	med;
 
 	med = median(len);
-	if (index < med)
+	if (index <= med)
 		return (index);
 	return (len - index);
 }
@@ -57,7 +52,7 @@ int	cost_node_a(t_stack *node_a, t_stack *first_b, int len_a, int len_b)
 		return (cost_1);
 	cost_1 = cost_individual(node_a->index, len_a);
 	cost_2 = cost_individual(target_a, len_b);
-	return (cost_1 + cost_2 + 1);
+	return (cost_1 + cost_2);
 }
 
 int	cost_node_b(t_stack *node_b, t_stack *first_a, int len_b, int len_a)
@@ -72,5 +67,5 @@ int	cost_node_b(t_stack *node_b, t_stack *first_a, int len_b, int len_a)
 		return (cost_1);
 	cost_1 = cost_individual(node_b->index, len_b);
 	cost_2 = cost_individual(target_b, len_a);
-	return (cost_1 + cost_2 + 1);
+	return (cost_1 + cost_2);
 }

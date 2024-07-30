@@ -52,30 +52,13 @@ int	sortable(t_stack *a)
 	return (nb);
 }
 
-void	sort_stack(t_stack **a, t_stack **b)
-{
-	int		i;
-
-	if (!b)
-		free_list(a);
-	i = 2;
-	while (i-- > 0)
-	{
-		push(a, b);
-		ft_putstr_fd("pb");
-	}
-	if ((is_max(*a, *b) || is_min(*a, *b)) && !is_desc(*b))
-		exec_move(swap, b, "sb", 1);
-	push(a, b);
-	ft_putstr_fd("pb");
-    range_algo(a, b);
-}
-
 void	push_swap(t_stack **a, t_stack **b)
 {
 	int	len_a;
 	int	move;
 
+	if (!b)
+		free_list(a);
 	len_a = count_node(*a);
 	move = sortable(*a);
 	if (len_a == 2 && !is_asc(*a))
@@ -85,5 +68,13 @@ void	push_swap(t_stack **a, t_stack **b)
 	else if (len_a > 3 && move > 0)
 		exec_move(rotate, a, "ra", move);
 	else if (len_a > 3 && move <= 0)
-		sort_stack(a, b);
+	{
+		move = 2;
+		while (move-- > 0)
+		{
+			push(a, b);
+			ft_putstr_fd("pb");
+		}
+    	range_algo(a, b);
+	}
 }

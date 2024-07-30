@@ -6,7 +6,7 @@
 /*   By: rrakotos <rrakotos@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/28 22:06:04 by rrakotos          #+#    #+#             */
-/*   Updated: 2024/07/28 22:06:36 by rrakotos         ###   ########.fr       */
+/*   Updated: 2024/07/30 13:25:22 by rrakotos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ int	median(int length)
 	int	result;
 
 	result = length;
-	if (result % 2 != 0)
-		return ((result / 2) + 1);
+	// if (result % 2 != 0)
+	// 	return ((result / 2) + 1);
 	return (result / 2);
 }

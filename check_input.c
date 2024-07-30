@@ -2,14 +2,11 @@
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   check_input.c                                      :+:      :+:    :+:   */
-/*                                                    +:+ +:+        
-	+:+     */
-/*   By: rrakotos <rrakotos@student.42antananari    +#+  +:+      
-	+#+        */
-/*                                                +#+#+#+#+#+  
-	+#+           */
-/*   Created: 2024/07/25 15:09:47 by rrakotos          #+#    #+#             */
-/*   Updated: 2024/07/25 15:09:47 by rrakotos         ###   ########.fr       */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rrakotos <rrakotos@student.42antananari    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/07/30 15:01:41 by rrakotos          #+#    #+#             */
+/*   Updated: 2024/07/30 15:01:41 by rrakotos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,13 +91,21 @@ int	not_dup(long *number, unsigned int size)
 
 int	check_number(char *s)
 {
-	while (*s)
+	while (*s != '\0')
 	{
-		while (ft_isdigit(*s) || ft_isspace(*s))
+		if (!ft_isdigit(*s) && !ft_isspace(*s) && *s != '-' && *s != '+')
+			return (0);
+		while (ft_isspace(*s))
 			s++;
 		if (*s == '-' || *s == '+')
 			s++;
-		if (!ft_isdigit(*s) && *s != '\0')
+		int found_digit = 0;
+		while (ft_isdigit(*s))
+		{
+			found_digit = 1;
+			s++;
+		}
+		if (!found_digit)
 			return (0);
 	}
 	return (1);

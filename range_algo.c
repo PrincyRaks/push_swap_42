@@ -91,26 +91,22 @@ void	range_algo(t_stack **a, t_stack **b)
 	t_stack	*min_cost;
 	int		move;
 
-	while (!sortable(*a) && (count_node(*a) > 3 && !is_asc(*a)))
+	while (count_node(*a) > 3 && !is_asc(*a))
 	{
-		// load_stack(a);
-		// load_stack(b);
 		min_cost = get_min_cost_a(*a, *b);
 		push_to_b(min_cost, a, b);
 	}
-	// move = sortable(*a);
-	// if (move > 0)
-	// 	exec_move(rotate, a, "ra", move);
-	// if (!is_asc(*a) && count_node(*a) == 3)
-	// 	sort_three(a);
-	// if (is_asc(*a))
-	// {
-	// 	while (count_node(*b) > 1)
-	// 	{
-	// 		load_stack(a);
-	// 		load_stack(b);
-	// 		min_cost = get_min_cost_b(*a, *b);
-	// 		push_to_a(min_cost, b, a);
-	// 	}
-	// }
+	move = sortable(*a);
+	if (move > 0)
+		exec_move(rotate, a, "ra", move);
+	if (!is_asc(*a) && count_node(*a) == 3)
+		sort_three(a);
+	if (is_asc(*a))
+	{
+		while (count_node(*b) > 0)
+		{
+			min_cost = get_min_cost_b(*a, *b);
+			push_to_a(min_cost, b, a);
+		}
+	}
 }
