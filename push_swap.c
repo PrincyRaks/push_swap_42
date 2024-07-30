@@ -21,14 +21,14 @@ void	error_free_list(t_stack **node)
 void	free_list(t_stack **node)
 {
 	t_stack *current;
-	t_stack *n;
+	t_stack *next_node;
 
-	n = *node;
+	current = *node;
 	while (current)
 	{
-		current = (*node)->next;
-		free(n);
-		n = current;
+		next_node = current->next;
+		free(current);
+		current = next_node;
 	}
 	free(node);
 }
