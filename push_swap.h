@@ -59,7 +59,6 @@ t_stack	*get_value_min(t_stack *first);
 
 int	target_min_index(t_stack *node_a, t_stack *first_b);
 int	target_max_index(t_stack *node_b, t_stack *first_a);
-int	median(int length);
 int	cost_both(int index, int target_i, int len_1, int len_2);
 int	cost_individual(int index, int len);
 int	cost_node_a(t_stack *node_a, t_stack *first_b, int len_a, int len_b);
@@ -82,5 +81,6 @@ void	push_to_b(t_stack *to_range, t_stack **stack_a, t_stack **stack_b);
 void	push_swap(t_stack **a, t_stack **b);
 void	range_algo(t_stack **a, t_stack **b);
 void	free_list(t_stack **node);
+void	re_order_a(t_stack **a, int len_a);
 
 #endif

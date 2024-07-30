@@ -68,12 +68,10 @@ void	move_both(t_stack *to_range, t_stack **s_1, t_stack **s_2, int back)
 
 void	handle_stack_a_moves(t_stack *to_range, t_stack **stack_a, int len_a)
 {
-	int median_a;
 	int index_a;
 
-	median_a = median(len_a);
 	index_a = to_range->index;
-	if (index_a <= median_a)
+	if (index_a <= (len_a / 2))
 		exec_move(rotate, stack_a, "ra", index_a);
 	else
 		exec_move(r_rotate, stack_a, "rra", len_a - index_a);
@@ -81,12 +79,10 @@ void	handle_stack_a_moves(t_stack *to_range, t_stack **stack_a, int len_a)
 
 void	handle_stack_b_moves(t_stack *to_range, t_stack **stack_b, int len_b)
 {
-	int median_b;
 	int target_a;
 
-	median_b = median(len_b);
 	target_a = target_min_index(to_range, *stack_b);
-	if (target_a <= median_b)
+	if (target_a <= (len_b / 2))
 		exec_move(rotate, stack_b, "rb", target_a);
 	else
 		exec_move(r_rotate, stack_b, "rrb", len_b - target_a);

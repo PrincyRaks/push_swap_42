@@ -32,9 +32,7 @@ int	sortable(t_stack *a)
 {
 	t_stack	*node_min;
 	t_stack	*node_top;
-	int		nb;
 
-	nb = 0;
 	node_min = get_value_min(a);
 	node_top = a;
 	if (!is_asc(node_min))
@@ -47,9 +45,8 @@ int	sortable(t_stack *a)
 			&& node_top->value > node_top->next->value)
 			return (0);
 		node_top = node_top->next;
-		nb++;
 	}
-	return (nb);
+	return (1);
 }
 
 void	push_swap(t_stack **a, t_stack **b)
@@ -65,9 +62,9 @@ void	push_swap(t_stack **a, t_stack **b)
 		exec_move(swap, a, "sa", 1);
 	else if (len_a == 3 && !is_asc(*a))
 		sort_three(a);
-	else if (len_a > 3 && move > 0)
-		exec_move(rotate, a, "ra", move);
-	else if (len_a > 3 && move <= 0)
+	else if (len_a > 3 && move)
+		re_order_a(a, len_a);
+	else
 	{
 		move = 2;
 		while (move-- > 0)

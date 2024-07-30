@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: rrakotos <rrakotos@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/18 09:48:36 by rrakotos          #+#    #+#             */
-/*   Updated: 2024/07/26 15:54:54 by rrakotos         ###   ########.fr       */
+/*   Created: 2024/07/30 23:18:47 by rrakotos          #+#    #+#             */
+/*   Updated: 2024/07/30 23:18:47 by rrakotos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 t_stack	*get_min_cost_a(t_stack *first_a, t_stack *first_b)
 {
-	int		len_a;
-	int		len_b;
-	int		min_cost;
-	t_stack	*node_a;
+	int len_a;
+	int len_b;
+	int min_cost;
+	t_stack *node_a;
 
 	len_a = count_node(first_a);
 	len_b = count_node(first_b);
@@ -37,10 +37,10 @@ t_stack	*get_min_cost_a(t_stack *first_a, t_stack *first_b)
 
 t_stack	*get_min_cost_b(t_stack *first_a, t_stack *first_b)
 {
-	int		len_a;
-	int		len_b;
-	int		min_cost;
-	t_stack	*node_b;
+	int len_a;
+	int len_b;
+	int min_cost;
+	t_stack *node_b;
 
 	len_a = count_node(first_a);
 	len_b = count_node(first_b);
@@ -60,8 +60,8 @@ t_stack	*get_min_cost_b(t_stack *first_a, t_stack *first_b)
 
 void	push_to_b(t_stack *to_range, t_stack **stack_a, t_stack **stack_b)
 {
-	int	len_a;
-	int	len_b;
+	int len_a;
+	int len_b;
 
 	len_a = count_node(*stack_a);
 	len_b = count_node(*stack_b);
@@ -72,10 +72,10 @@ void	push_to_b(t_stack *to_range, t_stack **stack_a, t_stack **stack_b)
 	ft_putstr_fd("pb");
 }
 
-void	push_to_a(t_stack *to_range,t_stack **stack_b, t_stack **stack_a)
+void	push_to_a(t_stack *to_range, t_stack **stack_b, t_stack **stack_a)
 {
-	int	len_a;
-	int	len_b;
+	int len_a;
+	int len_b;
 
 	len_a = count_node(*stack_a);
 	len_b = count_node(*stack_b);
@@ -89,16 +89,15 @@ void	push_to_a(t_stack *to_range,t_stack **stack_b, t_stack **stack_a)
 void	range_algo(t_stack **a, t_stack **b)
 {
 	t_stack	*min_cost;
-	int		move;
 
-	while (count_node(*a) > 3 && !is_asc(*a))
+	while (count_node(*a) > 3 && !is_asc(*a) && !sortable(*a))
 	{
 		min_cost = get_min_cost_a(*a, *b);
 		push_to_b(min_cost, a, b);
+		
 	}
-	move = sortable(*a);
-	if (move > 0)
-		exec_move(rotate, a, "ra", move);
+	if (sortable(*a))
+		re_order_a(a, count_node(*a));
 	if (!is_asc(*a) && count_node(*a) == 3)
 		sort_three(a);
 	if (is_asc(*a))
@@ -108,5 +107,6 @@ void	range_algo(t_stack **a, t_stack **b)
 			min_cost = get_min_cost_b(*a, *b);
 			push_to_a(min_cost, b, a);
 		}
+		re_order_a(a, count_node(*a));
 	}
 }

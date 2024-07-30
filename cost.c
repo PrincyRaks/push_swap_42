@@ -34,8 +34,7 @@ int	cost_individual(int index, int len)
 {
 	int	med;
 
-	med = median(len);
-	if (index <= med)
+	if (index <= (len / 2))
 		return (index);
 	return (len - index);
 }

@@ -49,13 +49,3 @@ int	target_max_index(t_stack *node_b, t_stack *first_a)
 		return ((get_value_min(stack_a))->index);
 	return (max_index->index);
 }
-
-int	median(int length)
-{
-	int	result;
-
-	result = length;
-	// if (result % 2 != 0)
-	// 	return ((result / 2) + 1);
-	return (result / 2);
-}
