@@ -19,7 +19,6 @@ long	*check_dup(char **data, int size)
 	number = convert_int(data, size);
 	if (!not_dup(number, size))
 	{
-		free(data);
 		free(number);
 		print_error();
 	}
@@ -86,7 +85,6 @@ t_stack	*init_stack(long *tab_num, int size)
 		ft_lstadd_back(&lst, create_node(tab_num[i], i));
 		i++;
 	}
-	add_top_bottom(&lst, ft_lstlast(lst));
 	free(tab_num);
 	return (lst);
 }

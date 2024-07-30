@@ -36,14 +36,14 @@ int	sortable(t_stack *a)
 
 	nb = 0;
 	node_min = get_value_min(a);
-	node_top = a->top;
+	node_top = a;
 	if (!is_asc(node_min))
 		return (0);
-	if (node_top->value < node_top->bottom->value)
+	if (node_top->value < ft_lstlast(a)->value)
 		return (0);
 	while (node_top->next && (node_top != node_min))
 	{
-		if (node_top->next != node_min
+		if (node_top->next == node_min
 			&& node_top->value > node_top->next->value)
 			return (0);
 		node_top = node_top->next;
@@ -54,10 +54,8 @@ int	sortable(t_stack *a)
 
 void	sort_stack(t_stack **a, t_stack **b)
 {
-	// t_stack	**b;
 	int		i;
 
-	// b = (t_stack **)malloc(sizeof(t_stack *));
 	if (!b)
 		free_list(a);
 	i = 2;

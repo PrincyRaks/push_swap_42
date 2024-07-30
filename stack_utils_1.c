@@ -62,24 +62,3 @@ void	add_front(t_stack **lst, t_stack *node)
 		*lst = node;
 	}
 }
-
-void	add_top_bottom(t_stack **lst, t_stack *tail)
-{
-	t_stack	*node;
-	t_stack	*head;
-
-	head = *lst;
-	node = *lst;
-	if (lst)
-	{
-		if (*lst)
-		{
-			while (node)
-			{
-				node->top = head;
-				node->bottom = tail;
-				node = node->next;
-			}
-		}
-	}
-}

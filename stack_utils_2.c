@@ -39,7 +39,6 @@ void	load_stack(t_stack **stack)
 		i++;
 	}
 	node->index = i;
-	add_top_bottom(stack, node);
 }
 
 t_stack	*get_value_max(t_stack *first)

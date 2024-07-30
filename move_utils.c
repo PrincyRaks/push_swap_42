@@ -18,7 +18,7 @@ void	swap(t_stack **first)
 	t_stack *node_next;
 	t_stack *node_next_next;
 
-	if ((!first || !*first) || (*first)->top == (*first)->bottom)
+	if ((!first || !*first) || !(*first)->next)
 		return ;
 	node_next = (*first)->next;
 	node_next_next = (*first)->next->next;
@@ -32,16 +32,11 @@ void	rotate(t_stack **first)
 {
 	t_stack *tmp;
 
-	if ((!first || !*first) || (*first)->top == (*first)->bottom)
+	if ((!first || !*first) || !(*first)->next)
 		return ;
-	// if (count_node(*first) == 2)
-	// {
-	// 	swap(first, c);
-	// 	return ;
-	// }
 	tmp = *first;
 	*first = (*first)->next;
-	(*first)->bottom->next = tmp;
+	ft_lstlast(*first)->next = tmp;
 	tmp->next = NULL;
 	load_stack(first);
 }
@@ -49,18 +44,15 @@ void	rotate(t_stack **first)
 void	r_rotate(t_stack **first)
 {
 	t_stack *tmp;
+	t_stack	*last_node;
 	int len;
 
-	if ((!first || !*first) || (*first)->top == (*first)->bottom)
+	if ((!first || !*first) || !(*first)->next)
 		return ;
 	len = count_node(*first);
-	// if (len == 2)
-	// {
-	// 	swap(first, c);
-	// 	return ;
-	// }
-	(*first)->bottom->next = *first;
-	*first = (*first)->bottom;
+	last_node = ft_lstlast(*first);
+	last_node->next = *first;
+	*first = last_node;
 	tmp = *first;
 	while (0 < (len - 1))
 	{

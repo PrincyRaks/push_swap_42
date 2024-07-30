@@ -18,21 +18,19 @@ t_stack	*get_min_cost_a(t_stack *first_a, t_stack *first_b)
 	int		len_b;
 	int		min_cost;
 	t_stack	*node_a;
-	t_stack	*a;
 
 	len_a = count_node(first_a);
 	len_b = count_node(first_b);
 	node_a = first_a;
-	a = first_a;
-	min_cost = cost_node_a(a, first_b, len_a, len_b);
-	while (a)
+	min_cost = cost_node_a(first_a, first_b, len_a, len_b);
+	while (first_a)
 	{
-		if (min_cost > cost_node_a(a, first_b, len_a, len_b))
+		if (min_cost > cost_node_a(first_a, first_b, len_a, len_b))
 		{
-			min_cost = cost_node_a(a, first_b, len_a, len_b);
-			node_a = a;
+			min_cost = cost_node_a(first_a, first_b, len_a, len_b);
+			node_a = first_a;
 		}
-		a = a->next;
+		first_a = first_a->next;
 	}
 	return (node_a);
 }
@@ -43,21 +41,19 @@ t_stack	*get_min_cost_b(t_stack *first_a, t_stack *first_b)
 	int		len_b;
 	int		min_cost;
 	t_stack	*node_b;
-	t_stack	*b;
 
 	len_a = count_node(first_a);
 	len_b = count_node(first_b);
 	node_b = first_b;
-	b = first_b;
-	min_cost = cost_node_b(b, first_a, len_b, len_a);
-	while (b)
+	min_cost = cost_node_b(first_b, first_a, len_b, len_a);
+	while (first_b)
 	{
-		if (min_cost > cost_node_b(b, first_a, len_b, len_a))
+		if (min_cost > cost_node_b(first_b, first_a, len_b, len_a))
 		{
-			min_cost = cost_node_b(b, first_a, len_b, len_a);
-			node_b = b;
+			min_cost = cost_node_b(first_b, first_a, len_b, len_a);
+			node_b = first_b;
 		}
-		b = b->next;
+		first_b = first_b->next;
 	}
 	return (node_b);
 }
@@ -97,20 +93,24 @@ void	range_algo(t_stack **a, t_stack **b)
 
 	while (!sortable(*a) && (count_node(*a) > 3 && !is_asc(*a)))
 	{
+		// load_stack(a);
+		// load_stack(b);
 		min_cost = get_min_cost_a(*a, *b);
 		push_to_b(min_cost, a, b);
 	}
-	move = sortable(*a);
-	if (move > 0)
-		exec_move(rotate, a, "ra", move);
-	if (!is_asc(*a) && count_node(*a) == 3)
-		sort_three(a);
-	if (is_asc(*a))
-	{
-		while (count_node(*b) > 1)
-		{
-			min_cost = get_min_cost_b(*a, *b);
-			push_to_a(min_cost, b, a);
-		}
-	}
+	// move = sortable(*a);
+	// if (move > 0)
+	// 	exec_move(rotate, a, "ra", move);
+	// if (!is_asc(*a) && count_node(*a) == 3)
+	// 	sort_three(a);
+	// if (is_asc(*a))
+	// {
+	// 	while (count_node(*b) > 1)
+	// 	{
+	// 		load_stack(a);
+	// 		load_stack(b);
+	// 		min_cost = get_min_cost_b(*a, *b);
+	// 		push_to_a(min_cost, b, a);
+	// 	}
+	// }
 }

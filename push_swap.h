@@ -24,8 +24,8 @@ typedef struct s_stack
 {
 	int value;
 	int index;
-	struct s_stack *top;
-	struct s_stack *bottom;
+	// struct s_stack *top;
+	// struct s_stack *bottom;
 	struct s_stack *next;
 } t_stack;
 void	print_error(void);
@@ -44,7 +44,7 @@ t_stack	*create_node(int number, int index);
 void	ft_lstadd_back(t_stack **lst, t_stack *new);
 t_stack	*ft_lstlast(t_stack *lst);
 int	count_node(t_stack *lst);
-void	add_top_bottom(t_stack **lst, t_stack *tail);
+// void	add_top_bottom(t_stack **lst, t_stack *tail);
 void	add_front(t_stack **lst, t_stack *node);
 void	load_stack(t_stack **stack);
 

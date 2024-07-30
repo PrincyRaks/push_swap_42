@@ -48,20 +48,20 @@ void	move_both(t_stack *to_range, t_stack **s_1, t_stack **s_2, int back)
 		target_i = target_max_index(to_range, *s_2);
 	if (to_range->index <= (len_1 / 2) && target_i <= (len_2 / 2))
 	{
+		move = to_range->index;
 		if (to_range->index >= target_i)
 			move = target_i;
-		else
-			move = to_range->index;
 		exec_both(rotate, s_1, s_2, move);
 	}
 	else if (to_range->index >= (len_1 / 2) && target_i >= (len_2 / 2))
 	{
+		move = len_2 - target_i;
 		if ((len_1 - to_range->index) <= (len_2 - target_i))
 			move = len_1 - to_range->index;
-		else
-			move = len_2 - target_i;
 		exec_both(r_rotate, s_1, s_2, move);
 	}
+	// load_stack(s_1);
+	// load_stack(s_2);
 }
 
 void	handle_stack_a_moves(t_stack *to_range, t_stack **stack_a, int len_a)

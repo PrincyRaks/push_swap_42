@@ -46,7 +46,7 @@ char	*ft_strjoin_data(char *s1, char *s2)
 	size_t len;
 
 	if (is_empty(s2))
-		return (free(s1),NULL);
+		return (free(s1), NULL);
 	len = ft_strlen(s1) + ft_strlen(s2);
 	if (*s1 && *s2)
 		len++;
@@ -80,11 +80,13 @@ int	not_dup(long *number, unsigned int size)
 		while (j < size)
 		{
 			if (number[i] == dup[j])
+			{
 				count++;
+				if (count > 1)
+					return (0);
+			}
 			j++;
 		}
-		if (count >= 2)
-			return (0);
 		i++;
 	}
 	return (1);
@@ -92,26 +94,14 @@ int	not_dup(long *number, unsigned int size)
 
 int	check_number(char *s)
 {
-	int i;
-
-	i = 0;
-	while (s[i] != '\0')
+	while (*s)
 	{
-		if ((!ft_isdigit(s[i]) && !ft_isspace(s[i])) && (s[i] != '-'
-				&& s[i] != '+'))
+		while (ft_isdigit(*s) || ft_isspace(*s))
+			s++;
+		if (*s == '-' || *s == '+')
+			s++;
+		if (!ft_isdigit(*s) && *s != '\0')
 			return (0);
-		while (ft_isspace(s[i]))
-			i++;
-		if (s[i] == '-' || s[i] == '+')
-		{
-			i++;
-			if (s[i] >= 48 && s[i] <= 57)
-				check_number(s + i);
-			else
-				return (0);
-		}
-		while (s[i] >= 48 && s[i] <= 57)
-			i++;
 	}
 	return (1);
 }
