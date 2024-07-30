@@ -80,6 +80,7 @@ void	push_to_b(t_stack *to_range, t_stack **stack_a, t_stack **stack_b);
 
 void	push_swap(t_stack **a, t_stack **b);
 void	range_algo(t_stack **a, t_stack **b);
+void	error_free_list(t_stack **node);
 void	free_list(t_stack **node);
 void	re_order_a(t_stack **a, int len_a);
 

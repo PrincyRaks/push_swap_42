@@ -2,19 +2,21 @@
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
-/*                                                    +:+ +:+        
-	+:+     */
-/*   By: rrakotos <rrakotos@student.42antananari    +#+  +:+      
-	+#+        */
-/*                                                +#+#+#+#+#+  
-	+#+           */
-/*   Created: 2024/07/25 15:37:11 by rrakotos          #+#    #+#             */
-/*   Updated: 2024/07/26 15:52:00 by rrakotos         ###   ########.fr       */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rrakotos <rrakotos@student.42antananari    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/07/31 00:19:12 by rrakotos          #+#    #+#             */
+/*   Updated: 2024/07/31 00:19:12 by rrakotos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+void	error_free_list(t_stack **node)
+{
+	free_list(node);
+	print_error();
+}
 
 void	free_list(t_stack **node)
 {
@@ -29,7 +31,6 @@ void	free_list(t_stack **node)
 		n = current;
 	}
 	free(node);
-	print_error();
 }
 
 int	sortable(t_stack *a)
