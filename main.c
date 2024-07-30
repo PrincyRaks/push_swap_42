@@ -10,6 +10,8 @@ int	main(int argc, char **argv)
 		a = init_data(argv);
 		b = NULL;
 		push_swap(&a, &b);
+		free_list(&a);
+		free_list(&b);
 	}
 	return (0);
 }

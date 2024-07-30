@@ -2,9 +2,12 @@
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: rrakotos <rrakotos@student.42antananari    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
+/*                                                    +:+ +:+        
+	+:+     */
+/*   By: rrakotos <rrakotos@student.42antananari    +#+  +:+      
+	+#+        */
+/*                                                +#+#+#+#+#+  
+	+#+           */
 /*   Created: 2024/07/25 15:37:11 by rrakotos          #+#    #+#             */
 /*   Updated: 2024/07/26 15:52:00 by rrakotos         ###   ########.fr       */
 /*                                                                            */
@@ -12,10 +15,11 @@
 
 #include "push_swap.h"
 
+
 void	free_list(t_stack **node)
 {
-	t_stack	*current;
-	t_stack	*n;
+	t_stack *current;
+	t_stack *n;
 
 	n = *node;
 	while (current)
@@ -30,8 +34,8 @@ void	free_list(t_stack **node)
 
 int	sortable(t_stack *a)
 {
-	t_stack	*node_min;
-	t_stack	*node_top;
+	t_stack *node_min;
+	t_stack *node_top;
 
 	node_min = get_value_min(a);
 	node_top = a;
@@ -51,8 +55,8 @@ int	sortable(t_stack *a)
 
 void	push_swap(t_stack **a, t_stack **b)
 {
-	int	len_a;
-	int	move;
+	int len_a;
+	int move;
 
 	if (!b)
 		free_list(a);
@@ -64,7 +68,7 @@ void	push_swap(t_stack **a, t_stack **b)
 		sort_three(a);
 	else if (len_a > 3 && move)
 		re_order_a(a, len_a);
-	else
+	else if (len_a > 3 && !move && !is_asc(*a))
 	{
 		move = 2;
 		while (move-- > 0)
@@ -72,6 +76,6 @@ void	push_swap(t_stack **a, t_stack **b)
 			push(a, b);
 			ft_putstr_fd("pb");
 		}
-    	range_algo(a, b);
+		range_algo(a, b);
 	}
 }
