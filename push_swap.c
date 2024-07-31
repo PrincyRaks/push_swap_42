@@ -30,7 +30,6 @@ void	free_list(t_stack **node)
 		free(current);
 		current = next_node;
 	}
-	free(node);
 }
 
 int	sortable(t_stack *a)

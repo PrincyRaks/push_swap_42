@@ -45,6 +45,12 @@ long	*convert_int(char **str, int size)
 		}
 		i++;
 	}
+	i = 0;
+	while (str[i])
+	{
+		free(str[i]);
+		i++;
+	}
 	free(str);
 	return (tab_n);
 }
@@ -55,7 +61,7 @@ char	*join_argv(char **argv)
 	char	*data;
 
 	i = 1;
-	data = ft_calloc(1, 1);
+	data = ft_strdup("");
 	if (!data)
 		print_error();
 	while (argv[i])
@@ -98,6 +104,7 @@ t_stack	*init_data(char **argv)
 
 	data = join_argv(argv);
 	tab_str = ft_split(data);
+	free(data);
 	if (!tab_str)
 	{
 		free(tab_str);

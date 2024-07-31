@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rrakotos <rrakotos@student.42antananari    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/07/31 09:32:34 by rrakotos          #+#    #+#             */
+/*   Updated: 2024/07/31 09:32:34 by rrakotos         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 int	main(int argc, char **argv)
@@ -11,7 +23,6 @@ int	main(int argc, char **argv)
 		b = NULL;
 		push_swap(&a, &b);
 		free_list(&a);
-		free_list(&b);
 	}
 	return (0);
 }
