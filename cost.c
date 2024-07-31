@@ -6,7 +6,7 @@
 /*   By: rrakotos <rrakotos@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/31 11:14:52 by rrakotos          #+#    #+#             */
-/*   Updated: 2024/07/31 11:15:25 by rrakotos         ###   ########.fr       */
+/*   Updated: 2024/07/31 12:01:14 by rrakotos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,6 @@ int	cost_both(int index, int target, int len_1, int len_2)
 
 int	cost_individual(int index, int len)
 {
-	int	med;
-
 	if (index <= (len / 2))
 		return (index);
 	return (len - index);

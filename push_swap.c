@@ -6,7 +6,7 @@
 /*   By: rrakotos <rrakotos@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/31 11:30:04 by rrakotos          #+#    #+#             */
-/*   Updated: 2024/07/31 11:30:05 by rrakotos         ###   ########.fr       */
+/*   Updated: 2024/07/31 17:23:49 by rrakotos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,7 @@ int	sortable(t_stack *a)
 		return (0);
 	while (node_top->next && (node_top != node_min))
 	{
-		if (node_top->next == node_min
-			&& node_top->value > node_top->next->value)
+		if (node_top->value > node_top->next->value)
 			return (0);
 		node_top = node_top->next;
 	}
@@ -70,12 +69,13 @@ void	push_swap(t_stack **a, t_stack **b)
 		re_order_a(a, len_a);
 	else if (len_a > 3 && !move && !is_asc(*a))
 	{
-		move = 2;
-		while (move-- > 0)
+		pb(a, b);
+		if (count_node(*a) == 3)
+			range_algo(a, b);
+		else
 		{
-			push(a, b);
-			ft_putstr_fd("pb");
+			pb(a, b);
+			range_algo(a, b);	
 		}
-		range_algo(a, b);
 	}
 }

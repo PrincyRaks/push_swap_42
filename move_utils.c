@@ -6,7 +6,7 @@
 /*   By: rrakotos <rrakotos@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/25 15:31:47 by rrakotos          #+#    #+#             */
-/*   Updated: 2024/07/31 11:29:08 by rrakotos         ###   ########.fr       */
+/*   Updated: 2024/07/31 16:05:18 by rrakotos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,4 +80,10 @@ void	push(t_stack **send, t_stack **receive)
 	*send = new_first;
 	load_stack(send);
 	load_stack(receive);
+}
+
+void	pb(t_stack **send, t_stack **receive)
+{
+	push(send, receive);
+	ft_putstr_fd("pb");
 }

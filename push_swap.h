@@ -6,7 +6,7 @@
 /*   By: rrakotos <rrakotos@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/31 11:31:13 by rrakotos          #+#    #+#             */
-/*   Updated: 2024/07/31 11:32:45 by rrakotos         ###   ########.fr       */
+/*   Updated: 2024/07/31 16:05:41 by rrakotos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,5 +81,6 @@ void				range_algo(t_stack **a, t_stack **b);
 void				error_free_list(t_stack **node);
 void				free_list(t_stack **node);
 void				re_order_a(t_stack **a, int len_a);
+void				pb(t_stack **send, t_stack **receive);
 
 #endif

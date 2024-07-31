@@ -1,13 +1,7 @@
-# Ignorer le fichier a.out
-a.out
+*.out
+*.o
 push_swap
-
-# Ignorer le fichier checker_linux
 checker_linux
-
-# Ignorer le dossier .vscode
 .vscode/
-
-# Ignorer le dossier push_visualizer
 push_swap_visualizer/
 visualiseur/
