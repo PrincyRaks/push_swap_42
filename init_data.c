@@ -39,14 +39,16 @@ long	*convert_int(char **str, int size)
 		tab_n[i] = ft_atoi(str[i]);
 		if (tab_n[i] > 2147483647 || tab_n[i] < -2147483648)
 		{
+			while (size-- != 0)
+				free(str[size]);
 			free(str);
 			free(tab_n);
 			print_error();
 		}
 		i++;
 	}
-	while (i-- != 0)
-		free(str[i]);
+	while (size-- != 0)
+		free(str[size]);
 	free(str);
 	return (tab_n);
 }

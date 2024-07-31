@@ -94,8 +94,6 @@ int	check_number(char *s)
 
 	while (*s != '\0')
 	{
-		if (!ft_isdigit(*s) && !ft_isspace(*s) && *s != '-' && *s != '+')
-			return (0);
 		while (ft_isspace(*s))
 			s++;
 		if (*s == '-' || *s == '+')
@@ -107,6 +105,10 @@ int	check_number(char *s)
 			s++;
 		}
 		if (!found_digit)
+			return (0);
+		while (ft_isspace(*s))
+            s++;
+		if (*s != '\0' && *s != '-' && *s != '+' && !ft_isdigit(*s))
 			return (0);
 	}
 	return (1);

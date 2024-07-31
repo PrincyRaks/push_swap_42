@@ -1,5 +1,6 @@
 *.out
 *.o
+*.txt
 push_swap
 checker_linux
 .vscode/

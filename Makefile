@@ -18,10 +18,10 @@ OBJS= $(SRCS:.c=.o)
 LIBFT_OBJS= $(LIBFT_SRCS:.c=.o)
 NAME= push_swap
 
-test1= 99 -2147483648 23 545
+test1= 99 -2147483648 22 -0 2
 test2= 1 2 3 5 67b778 947
-test3= " 49 128     50 38   49"
-test4= 54867543867438 3
+test3= '49 128 -11  49   50 38 '	
+test4= 3  5 9 0 -1 54867543867438 0
 
 all: $(NAME)
 
@@ -40,6 +40,6 @@ fclean: clean
 re: fclean $(NAME)
 
 leaks: $(NAME)
-	valgrind --leak-check=full ./$(NAME) $(test4)
+	valgrind --leak-check=full ./$(NAME) $(test1)
 
-.PHONY: clean fclean re bonus all
+.PHONY: clean fclean re bonus all leaks
