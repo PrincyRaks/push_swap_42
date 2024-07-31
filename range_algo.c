@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: rrakotos <rrakotos@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/30 23:18:47 by rrakotos          #+#    #+#             */
-/*   Updated: 2024/07/30 23:18:47 by rrakotos         ###   ########.fr       */
+/*   Created: 2024/07/31 11:33:31 by rrakotos          #+#    #+#             */
+/*   Updated: 2024/07/31 11:33:55 by rrakotos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 t_stack	*get_min_cost_a(t_stack *first_a, t_stack *first_b)
 {
-	int len_a;
-	int len_b;
-	int min_cost;
-	t_stack *node_a;
+	int		len_a;
+	int		len_b;
+	int		min_cost;
+	t_stack	*node_a;
 
 	len_a = count_node(first_a);
 	len_b = count_node(first_b);
@@ -37,10 +37,10 @@ t_stack	*get_min_cost_a(t_stack *first_a, t_stack *first_b)
 
 t_stack	*get_min_cost_b(t_stack *first_a, t_stack *first_b)
 {
-	int len_a;
-	int len_b;
-	int min_cost;
-	t_stack *node_b;
+	int		len_a;
+	int		len_b;
+	int		min_cost;
+	t_stack	*node_b;
 
 	len_a = count_node(first_a);
 	len_b = count_node(first_b);
@@ -60,8 +60,8 @@ t_stack	*get_min_cost_b(t_stack *first_a, t_stack *first_b)
 
 void	push_to_b(t_stack *to_range, t_stack **stack_a, t_stack **stack_b)
 {
-	int len_a;
-	int len_b;
+	int	len_a;
+	int	len_b;
 
 	len_a = count_node(*stack_a);
 	len_b = count_node(*stack_b);
@@ -74,8 +74,8 @@ void	push_to_b(t_stack *to_range, t_stack **stack_a, t_stack **stack_b)
 
 void	push_to_a(t_stack *to_range, t_stack **stack_b, t_stack **stack_a)
 {
-	int len_a;
-	int len_b;
+	int	len_a;
+	int	len_b;
 
 	len_a = count_node(*stack_a);
 	len_b = count_node(*stack_b);
@@ -94,7 +94,6 @@ void	range_algo(t_stack **a, t_stack **b)
 	{
 		min_cost = get_min_cost_a(*a, *b);
 		push_to_b(min_cost, a, b);
-		
 	}
 	if (sortable(*a))
 		re_order_a(a, count_node(*a));

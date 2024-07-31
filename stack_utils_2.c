@@ -6,15 +6,15 @@
 /*   By: rrakotos <rrakotos@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/25 15:32:40 by rrakotos          #+#    #+#             */
-/*   Updated: 2024/07/26 13:36:50 by rrakotos         ###   ########.fr       */
+/*   Updated: 2024/07/31 11:34:54 by rrakotos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_stack	*create_node(int number,int index)
+t_stack	*create_node(int number, int index)
 {
-	t_stack *node;
+	t_stack	*node;
 
 	node = (t_stack *)malloc(sizeof(t_stack));
 	if (!node)
@@ -27,8 +27,8 @@ t_stack	*create_node(int number,int index)
 
 void	load_stack(t_stack **stack)
 {
-	int i;
-	t_stack *node;
+	int		i;
+	t_stack	*node;
 
 	if (!*stack)
 		return ;

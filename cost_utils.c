@@ -6,7 +6,7 @@
 /*   By: rrakotos <rrakotos@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/28 22:06:04 by rrakotos          #+#    #+#             */
-/*   Updated: 2024/07/30 13:25:22 by rrakotos         ###   ########.fr       */
+/*   Updated: 2024/07/31 11:14:27 by rrakotos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ int	target_min_index(t_stack *node_a, t_stack *first_b)
 	stack_b = first_b;
 	while (first_b)
 	{
-		if ((node_a->value > first_b->value)
-			&& (min_index == NULL || first_b->value > min_index->value))
+		if ((node_a->value > first_b->value) && (min_index == NULL
+				|| first_b->value > min_index->value))
 			min_index = first_b;
 		first_b = first_b->next;
 	}
@@ -40,8 +40,8 @@ int	target_max_index(t_stack *node_b, t_stack *first_a)
 	stack_a = first_a;
 	while (first_a)
 	{
-		if ((node_b->value < first_a->value)
-			&& (max_index == NULL || first_a->value < max_index->value))
+		if ((node_b->value < first_a->value) && (max_index == NULL
+				|| first_a->value < max_index->value))
 			max_index = first_a;
 		first_a = first_a->next;
 	}

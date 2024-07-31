@@ -6,7 +6,7 @@
 /*   By: rrakotos <rrakotos@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/25 15:31:47 by rrakotos          #+#    #+#             */
-/*   Updated: 2024/07/25 15:31:47 by rrakotos         ###   ########.fr       */
+/*   Updated: 2024/07/31 11:29:08 by rrakotos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 
 void	swap(t_stack **first)
 {
-	t_stack *node_next;
-	t_stack *node_next_next;
+	t_stack	*node_next;
+	t_stack	*node_next_next;
 
 	if ((!first || !*first) || !(*first)->next)
 		return ;
@@ -30,7 +30,7 @@ void	swap(t_stack **first)
 
 void	rotate(t_stack **first)
 {
-	t_stack *tmp;
+	t_stack	*tmp;
 
 	if ((!first || !*first) || !(*first)->next)
 		return ;
@@ -43,9 +43,9 @@ void	rotate(t_stack **first)
 
 void	r_rotate(t_stack **first)
 {
-	t_stack *tmp;
+	t_stack	*tmp;
 	t_stack	*last_node;
-	int len;
+	int		len;
 
 	if ((!first || !*first) || !(*first)->next)
 		return ;
@@ -66,7 +66,7 @@ void	r_rotate(t_stack **first)
 void	push(t_stack **send, t_stack **receive)
 {
 	t_stack	*new_first;
-	
+
 	if ((!send || !receive) && !*send)
 		return ;
 	new_first = (*send)->next;

@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: rrakotos <rrakotos@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/25 15:32:18 by rrakotos          #+#    #+#             */
-/*   Updated: 2024/07/25 15:32:18 by rrakotos         ###   ########.fr       */
+/*   Created: 2024/07/31 11:34:02 by rrakotos          #+#    #+#             */
+/*   Updated: 2024/07/31 11:34:16 by rrakotos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	sort_three(t_stack **a)
 {
-	t_stack *max_value;
+	t_stack	*max_value;
 
 	if (is_asc(*a))
 		return ;

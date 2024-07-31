@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: rrakotos <rrakotos@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/31 09:32:34 by rrakotos          #+#    #+#             */
-/*   Updated: 2024/07/31 09:32:34 by rrakotos         ###   ########.fr       */
+/*   Created: 2024/07/31 10:52:04 by rrakotos          #+#    #+#             */
+/*   Updated: 2024/07/31 10:52:04 by rrakotos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 int	main(int argc, char **argv)
 {
-	t_stack *a;
-	t_stack *b;
+	t_stack	*a;
+	t_stack	*b;
 
 	if (argc > 1)
 	{

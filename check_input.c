@@ -5,18 +5,17 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: rrakotos <rrakotos@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/30 15:01:41 by rrakotos          #+#    #+#             */
-/*   Updated: 2024/07/30 15:01:41 by rrakotos         ###   ########.fr       */
+/*   Created: 2024/07/31 10:54:15 by rrakotos          #+#    #+#             */
+/*   Updated: 2024/07/31 10:54:15 by rrakotos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include <stdlib.h>
 
-
 int	strlen_tab(char **str)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (str[i] != NULL)
@@ -38,9 +37,9 @@ int	is_empty(char *str)
 
 char	*ft_strjoin_data(char *s1, char *s2)
 {
-	char *new_s;
-	char *tmp_s1;
-	size_t len;
+	char	*new_s;
+	char	*tmp_s1;
+	size_t	len;
 
 	if (is_empty(s2))
 		return (free(s1), NULL);
@@ -63,10 +62,10 @@ char	*ft_strjoin_data(char *s1, char *s2)
 
 int	not_dup(long *number, unsigned int size)
 {
-	unsigned int i;
-	unsigned int j;
-	int count;
-	long *dup;
+	unsigned int	i;
+	unsigned int	j;
+	int				count;
+	long			*dup;
 
 	i = 0;
 	dup = number;
@@ -91,6 +90,8 @@ int	not_dup(long *number, unsigned int size)
 
 int	check_number(char *s)
 {
+	int	found_digit;
+
 	while (*s != '\0')
 	{
 		if (!ft_isdigit(*s) && !ft_isspace(*s) && *s != '-' && *s != '+')
@@ -99,7 +100,7 @@ int	check_number(char *s)
 			s++;
 		if (*s == '-' || *s == '+')
 			s++;
-		int found_digit = 0;
+		found_digit = 0;
 		while (ft_isdigit(*s))
 		{
 			found_digit = 1;

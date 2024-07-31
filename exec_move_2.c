@@ -6,7 +6,7 @@
 /*   By: rrakotos <rrakotos@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/28 23:06:20 by rrakotos          #+#    #+#             */
-/*   Updated: 2024/07/30 23:46:09 by rrakotos         ###   ########.fr       */
+/*   Updated: 2024/07/31 11:17:00 by rrakotos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	handle_stack_a_back(t_stack *to_range, t_stack **stack_a, int len_a)
 
 void	re_order_a(t_stack **a, int len_a)
 {
-	t_stack *first;
+	t_stack	*first;
 
 	first = get_value_min(*a);
 	if (first->index <= (len_a / 2))

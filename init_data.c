@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: rrakotos <rrakotos@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/25 13:20:24 by rrakotos          #+#    #+#             */
-/*   Updated: 2024/07/25 15:27:35 by rrakotos         ###   ########.fr       */
+/*   Created: 2024/07/31 11:07:16 by rrakotos          #+#    #+#             */
+/*   Updated: 2024/07/31 11:27:12 by rrakotos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,12 +45,8 @@ long	*convert_int(char **str, int size)
 		}
 		i++;
 	}
-	i = 0;
-	while (str[i])
-	{
+	while (i-- != 0)
 		free(str[i]);
-		i++;
-	}
 	free(str);
 	return (tab_n);
 }
@@ -61,7 +57,7 @@ char	*join_argv(char **argv)
 	char	*data;
 
 	i = 1;
-	data = ft_strdup("");
+	data = ft_calloc(1, 1);
 	if (!data)
 		print_error();
 	while (argv[i])

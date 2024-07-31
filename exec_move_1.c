@@ -2,19 +2,15 @@
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   exec_move_1.c                                      :+:      :+:    :+:   */
-/*                                                    +:+ +:+        
-	+:+     */
-/*   By: rrakotos <rrakotos@student.42antananari    +#+  +:+      
-	+#+        */
-/*                                                +#+#+#+#+#+  
-	+#+           */
-/*   Created: 2024/07/28 23:07:44 by rrakotos          #+#    #+#             */
-/*   Updated: 2024/07/28 23:07:44 by rrakotos         ###   ########.fr       */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rrakotos <rrakotos@student.42antananari    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/07/31 11:15:32 by rrakotos          #+#    #+#             */
+/*   Updated: 2024/07/31 11:16:37 by rrakotos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
 
 void	exec_move(void (*move)(t_stack **), t_stack **data, char *msg, int n)
 {
@@ -40,10 +36,10 @@ void	exec_both(void (*move)(t_stack **), t_stack **a, t_stack **b, int n)
 
 void	move_both(t_stack *to_range, t_stack **s_1, t_stack **s_2, int back)
 {
-	int target_i;
-	int move;
-	int len_1;
-	int len_2;
+	int	target_i;
+	int	move;
+	int	len_1;
+	int	len_2;
 
 	len_1 = count_node(*s_1);
 	len_2 = count_node(*s_2);
@@ -68,7 +64,7 @@ void	move_both(t_stack *to_range, t_stack **s_1, t_stack **s_2, int back)
 
 void	handle_stack_a_moves(t_stack *to_range, t_stack **stack_a, int len_a)
 {
-	int index_a;
+	int	index_a;
 
 	index_a = to_range->index;
 	if (index_a <= (len_a / 2))
@@ -79,7 +75,7 @@ void	handle_stack_a_moves(t_stack *to_range, t_stack **stack_a, int len_a)
 
 void	handle_stack_b_moves(t_stack *to_range, t_stack **stack_b, int len_b)
 {
-	int target_a;
+	int	target_a;
 
 	target_a = target_min_index(to_range, *stack_b);
 	if (target_a <= (len_b / 2))

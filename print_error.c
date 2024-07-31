@@ -5,16 +5,16 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: rrakotos <rrakotos@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/25 15:32:08 by rrakotos          #+#    #+#             */
-/*   Updated: 2024/07/25 15:32:08 by rrakotos         ###   ########.fr       */
+/*   Created: 2024/07/31 11:29:22 by rrakotos          #+#    #+#             */
+/*   Updated: 2024/07/31 11:29:24 by rrakotos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
 #include <stdlib.h>
+#include <unistd.h>
 
-void    print_error(void)
+void	print_error(void)
 {
-    write(1, "Error\n", 6);
-    exit(1);
+	write(1, "Error\n", 6);
+	exit(1);
 }

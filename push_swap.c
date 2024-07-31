@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: rrakotos <rrakotos@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/31 00:19:12 by rrakotos          #+#    #+#             */
-/*   Updated: 2024/07/31 00:19:12 by rrakotos         ###   ########.fr       */
+/*   Created: 2024/07/31 11:30:04 by rrakotos          #+#    #+#             */
+/*   Updated: 2024/07/31 11:30:05 by rrakotos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ void	error_free_list(t_stack **node)
 
 void	free_list(t_stack **node)
 {
-	t_stack *current;
-	t_stack *next_node;
+	t_stack	*current;
+	t_stack	*next_node;
 
 	current = *node;
 	while (current)
@@ -34,8 +34,8 @@ void	free_list(t_stack **node)
 
 int	sortable(t_stack *a)
 {
-	t_stack *node_min;
-	t_stack *node_top;
+	t_stack	*node_min;
+	t_stack	*node_top;
 
 	node_min = get_value_min(a);
 	node_top = a;
@@ -55,8 +55,8 @@ int	sortable(t_stack *a)
 
 void	push_swap(t_stack **a, t_stack **b)
 {
-	int len_a;
-	int move;
+	int	len_a;
+	int	move;
 
 	if (!b)
 		free_list(a);
