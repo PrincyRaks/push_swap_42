@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rrakotos <rrakotos@student.42antanana      +#+  +:+       +#+        */
+/*   By: rrakotos <rrakotos@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/25 14:32:00 by rrakotos          #+#    #+#             */
-/*   Updated: 2024/07/25 14:32:50 by rrakotos         ###   ########.fr       */
+/*   Created: 2024/07/31 10:45:22 by rrakotos          #+#    #+#             */
+/*   Updated: 2024/07/31 10:45:22 by rrakotos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define LIBFT_H
 
 # include <stddef.h>
-# include <stdio.h>
 # include <stdlib.h>
 
 # ifndef FD
