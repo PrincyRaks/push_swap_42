@@ -6,7 +6,7 @@
 /*   By: rrakotos <rrakotos@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/31 10:54:15 by rrakotos          #+#    #+#             */
-/*   Updated: 2024/07/31 10:54:15 by rrakotos         ###   ########.fr       */
+/*   Updated: 2024/08/01 11:48:19 by rrakotos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,7 +104,9 @@ int	check_number(char *s)
 			found_digit = 1;
 			s++;
 		}
-		if (!found_digit)
+		if (!*s)
+			break;
+		if (!ft_isspace(*s) || !found_digit)
 			return (0);
 		while (ft_isspace(*s))
             s++;
