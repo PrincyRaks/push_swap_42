@@ -6,7 +6,7 @@
 /*   By: rrakotos <rrakotos@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/31 10:54:15 by rrakotos          #+#    #+#             */
-/*   Updated: 2024/08/01 11:48:19 by rrakotos         ###   ########.fr       */
+/*   Updated: 2024/08/01 14:47:16 by rrakotos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	strlen_tab(char **str)
 	return (i);
 }
 
-int	is_empty(char *str)
+static int	is_empty(char *str)
 {
 	while (*str)
 	{
@@ -105,11 +105,11 @@ int	check_number(char *s)
 			s++;
 		}
 		if (!*s)
-			break;
+			break ;
 		if (!ft_isspace(*s) || !found_digit)
 			return (0);
 		while (ft_isspace(*s))
-            s++;
+			s++;
 		if (*s != '\0' && *s != '-' && *s != '+' && !ft_isdigit(*s))
 			return (0);
 	}

@@ -6,7 +6,7 @@
 /*   By: rrakotos <rrakotos@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/31 15:04:36 by rrakotos          #+#    #+#             */
-/*   Updated: 2024/07/31 15:04:37 by rrakotos         ###   ########.fr       */
+/*   Updated: 2024/08/01 14:56:32 by rrakotos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	exec_move(void (*move)(t_stack **), t_stack **data, char *msg, int n)
 	}
 }
 
-void	exec_both(void (*move)(t_stack **), t_stack **a, t_stack **b, int n)
+static void	exec_both(void (*move)(t_stack **), t_stack **a, t_stack **b, int n)
 {
 	while (n-- > 0)
 	{

@@ -30,5 +30,7 @@ void	*ft_calloc(size_t elementCount, size_t elementSize);
 void	ft_bzero(void *s, size_t n);
 int		ft_isalpha(int c);
 void	ft_putstr_fd(char *s);
+int     ft_strncmp(const char *s1, const char *s2, int n);
+size_t	ft_strlcpy(char *dst, const char *src, size_t size);
 
 #endif

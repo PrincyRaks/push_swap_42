@@ -6,14 +6,14 @@
 /*   By: rrakotos <rrakotos@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/31 11:14:52 by rrakotos          #+#    #+#             */
-/*   Updated: 2024/07/31 12:01:14 by rrakotos         ###   ########.fr       */
+/*   Updated: 2024/08/01 14:52:56 by rrakotos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include <stdlib.h>
 
-int	cost_both(int index, int target, int len_1, int len_2)
+static int	cost_both(int index, int target, int len_1, int len_2)
 {
 	if (index <= (len_1 / 2) && target <= (len_2 / 2))
 	{
@@ -30,7 +30,7 @@ int	cost_both(int index, int target, int len_1, int len_2)
 	return (0);
 }
 
-int	cost_individual(int index, int len)
+static int	cost_individual(int index, int len)
 {
 	if (index <= (len / 2))
 		return (index);

@@ -6,13 +6,13 @@
 /*   By: rrakotos <rrakotos@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/31 11:33:31 by rrakotos          #+#    #+#             */
-/*   Updated: 2024/07/31 17:29:36 by rrakotos         ###   ########.fr       */
+/*   Updated: 2024/08/01 14:55:33 by rrakotos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_stack	*get_min_cost_a(t_stack *first_a, t_stack *first_b)
+static t_stack	*get_min_cost_a(t_stack *first_a, t_stack *first_b)
 {
 	int		len_a;
 	int		len_b;
@@ -35,7 +35,7 @@ t_stack	*get_min_cost_a(t_stack *first_a, t_stack *first_b)
 	return (node_a);
 }
 
-t_stack	*get_min_cost_b(t_stack *first_a, t_stack *first_b)
+static t_stack	*get_min_cost_b(t_stack *first_a, t_stack *first_b)
 {
 	int		len_a;
 	int		len_b;
@@ -58,7 +58,7 @@ t_stack	*get_min_cost_b(t_stack *first_a, t_stack *first_b)
 	return (node_b);
 }
 
-void	push_to_b(t_stack *to_range, t_stack **stack_a, t_stack **stack_b)
+static void	push_to_b(t_stack *to_range, t_stack **stack_a, t_stack **stack_b)
 {
 	int	len_a;
 	int	len_b;
@@ -72,7 +72,7 @@ void	push_to_b(t_stack *to_range, t_stack **stack_a, t_stack **stack_b)
 	ft_putstr_fd("pb");
 }
 
-void	push_to_a(t_stack *to_range, t_stack **stack_b, t_stack **stack_a)
+static void	push_to_a(t_stack *to_range, t_stack **stack_b, t_stack **stack_a)
 {
 	int	len_a;
 	int	len_b;

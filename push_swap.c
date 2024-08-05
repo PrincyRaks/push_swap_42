@@ -6,17 +6,11 @@
 /*   By: rrakotos <rrakotos@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/31 11:30:04 by rrakotos          #+#    #+#             */
-/*   Updated: 2024/07/31 17:23:49 by rrakotos         ###   ########.fr       */
+/*   Updated: 2024/08/01 14:58:28 by rrakotos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-void	error_free_list(t_stack **node)
-{
-	free_list(node);
-	print_error();
-}
 
 void	free_list(t_stack **node)
 {
@@ -75,7 +69,7 @@ void	push_swap(t_stack **a, t_stack **b)
 		else
 		{
 			pb(a, b);
-			range_algo(a, b);	
+			range_algo(a, b);
 		}
 	}
 }

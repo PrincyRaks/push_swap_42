@@ -6,15 +6,15 @@
 /*   By: rrakotos <rrakotos@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/31 11:07:16 by rrakotos          #+#    #+#             */
-/*   Updated: 2024/07/31 11:27:12 by rrakotos         ###   ########.fr       */
+/*   Updated: 2024/08/01 15:07:16 by rrakotos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-long	*check_dup(char **data, int size)
+static long	*check_dup(char **data, int size)
 {
-	long	*number;
+	static long	*number;
 
 	number = convert_int(data, size);
 	if (!not_dup(number, size))
@@ -53,7 +53,7 @@ long	*convert_int(char **str, int size)
 	return (tab_n);
 }
 
-char	*join_argv(char **argv)
+static char	*join_argv(char **argv)
 {
 	int		i;
 	char	*data;
@@ -77,7 +77,7 @@ char	*join_argv(char **argv)
 	return (data);
 }
 
-t_stack	*init_stack(long *tab_num, int size)
+static t_stack	*init_stack(long *tab_num, int size)
 {
 	int		i;
 	t_stack	*lst;
