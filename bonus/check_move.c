@@ -6,7 +6,7 @@
 /*   By: rrakotos <rrakotos@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/05 13:34:01 by rrakotos          #+#    #+#             */
-/*   Updated: 2024/08/05 17:15:14 by rrakotos         ###   ########.fr       */
+/*   Updated: 2024/08/05 17:22:48 by rrakotos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ void    exec_instrc(const char *move, t_stack **a, t_stack **b)
     int len;
 
     len = ft_strlen(move);
+    printf("len: %zu et valeur: %s\n", ft_strlen(move),move);
     if (!(ft_strncmp("sa\n", move, len)))
         swap(a);
     else if (!(ft_strncmp("sb\n", move, len)))
@@ -83,9 +84,12 @@ void    treatment_move(char *data, t_stack **a, t_stack **b)
 		return ;
 	}
     len_tab = strlen_tab(move);
-    i = -1;
-    while (len_tab > i++)
+    i = 0;
+    while (len_tab > i)
+    {
         exec_instrc(move[i], a, b);
+        i++;   
+    }
     i = 0;
     // while (len_tab > i)
     //     free(move[i]);
