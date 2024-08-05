@@ -67,7 +67,7 @@ void	push(t_stack **send, t_stack **receive)
 {
 	t_stack	*new_first;
 
-	if ((!send || !receive) && !*send)
+	if (!send || !receive || !*send)
 		return ;
 	new_first = (*send)->next;
 	if (!*receive)

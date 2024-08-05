@@ -16,9 +16,7 @@
 # include <stddef.h>
 # include <stdlib.h>
 # include "../libft/libft.h"
-# include "../push_swap.h"
-
-#include <stdio.h>
+# include "../mandatory/push_swap.h"
 
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 1000

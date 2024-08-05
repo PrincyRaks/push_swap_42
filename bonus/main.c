@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "push_swap_bonus.h"
-#include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
 
@@ -33,11 +32,12 @@ int	main(int argc, char **argv)
 			if (!check_move(instrc, ft_strlen(instrc)))
 				print_error();
 			data = ft_strjoin_data(data, instrc);
+			free(instrc);
 			instrc = get_next_line(0);
 		}
 		treatment_move(data, &a, &b);
-		// free_list(&a);
-		// free_list(&b);
+		free_list(&a);
+		free_list(&b);
 	}
 	return (0);
 }
