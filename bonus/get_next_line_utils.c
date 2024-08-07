@@ -3,12 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rrakotos <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: rrakotos <rrakotos@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 09:43:18 by rrakotos          #+#    #+#             */
-/*   Updated: 2024/03/20 09:37:12 by rrakotos         ###   ########.fr       */
+/*   Updated: 2024/08/06 13:58:27 by rrakotos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "push_swap_bonus.h"
 
 void	*ft_calloc_input(size_t elementCount, size_t elementSize)

@@ -14,6 +14,8 @@
 
 int	is_asc(t_stack *first)
 {
+	if (!first)
+		return (0);
 	while (first->next)
 	{
 		if (first->value > first->next->value)
@@ -25,6 +27,8 @@ int	is_asc(t_stack *first)
 
 int	is_desc(t_stack *first)
 {
+	if (!first)
+		return (0);
 	while (first->next)
 	{
 		if (first->value < first->next->value)

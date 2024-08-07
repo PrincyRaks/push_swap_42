@@ -54,6 +54,12 @@ $(OBJS):%.o:%.c
 $(BONUS_OBJS):%.o:%.c
 	cc $(CFLAGS) -c $< -o $@
 
+$(MAIN_BONUS_OBJS):%.o:%.c
+	cc $(CFLAGS) -c $< -o $@
+
+$(MAIN_OBJS):%.o:%.c
+	cc $(CFLAGS) -c $< -o $@
+
 $(NAME): $(OBJS) $(LIBFT_OBJS) $(MAIN_OBJS)
 	cc $(CFLAGS) $(MAIN_OBJS) $(OBJS) $(LIBFT_OBJS) -o $(NAME)
 

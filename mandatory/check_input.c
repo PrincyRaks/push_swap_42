@@ -104,7 +104,7 @@ int	check_number(char *s)
 			found_digit = 1;
 			s++;
 		}
-		if (!*s)
+		if (!*s && found_digit)
 			break ;
 		if (!ft_isspace(*s) || !found_digit)
 			return (0);

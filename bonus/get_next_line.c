@@ -3,12 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rrakotos <rrakotos@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rrakotos <rrakotos@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/13 09:40:41 by rrakotos          #+#    #+#             */
-/*   Updated: 2024/03/20 12:22:13 by rrakotos         ###   ########.fr       */
+/*   Created: 2024/08/06 14:02:05 by rrakotos          #+#    #+#             */
+/*   Updated: 2024/08/06 14:02:07 by rrakotos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "push_swap_bonus.h"
 #include <unistd.h>
 
@@ -44,7 +45,7 @@ void	free_all(char *s1, char *s2)
 
 char	*read_fd(int fd, char *storage, char *buffer)
 {
-	ssize_t		nread;
+	ssize_t	nread;
 
 	nread = BUFFER_SIZE;
 	while (nread == BUFFER_SIZE && !(ft_findchr(storage, '\n')))

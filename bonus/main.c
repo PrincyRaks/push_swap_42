@@ -29,7 +29,7 @@ int	main(int argc, char **argv)
 		instrc = get_next_line(0);
 		while (instrc)
 		{
-			if (!check_move(instrc, ft_strlen(instrc)))
+			if (!check_move(instrc))
 				print_error();
 			data = ft_strjoin_data(data, instrc);
 			free(instrc);
