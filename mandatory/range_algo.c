@@ -90,7 +90,7 @@ void	range_algo(t_stack **a, t_stack **b)
 {
 	t_stack	*min_cost;
 
-	while (count_node(*a) > 3 && !is_asc(*a) && !sortable(*a))
+	while (!is_asc(*a) || !sortable(*a) || count_node(*a) > 3)
 	{
 		min_cost = get_min_cost_a(*a, *b);
 		push_to_b(min_cost, a, b);
