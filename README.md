@@ -1,4 +1,4 @@
-![Static Badge](https://img.shields.io/badge/School_42-Antananarivo_Madagascar-green?logo=42) ![Static Badge](https://img.shields.io/badge/System_Linux-Ubuntu-green) ![Static Badge](https://img.shields.io/badge/Language-C-blue)
+![Static Badge](https://img.shields.io/badge/School_42-Antananarivo_Madagascar-green?logo=42) ![Static Badge](https://img.shields.io/badge/System_Linux-Ubuntu-green) ![Static Badge](https://img.shields.io/badge/Language-C-blue) ![Static Badge](https://img.shields.io/badge/Leaks-No_leaks-green)
 
 ## Introduction
 
