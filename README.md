@@ -1,4 +1,4 @@
-# PUSH_SWAP PROJECT IN SCHOOL42 ANTANANARIVO
+![Static Badge](https://img.shields.io/badge/School_42-Antananarivo_Madagascar-green?logo=42) ![Static Badge](https://img.shields.io/badge/System_Linux-Ubuntu-green) ![Static Badge](https://img.shields.io/badge/Language-C-blue)
 
 ## Introduction
 
