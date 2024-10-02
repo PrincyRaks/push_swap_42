@@ -1,4 +1,4 @@
-![Static Badge](https://img.shields.io/badge/School_42-Antananarivo_Madagascar-green?logo=42) ![Static Badge](https://img.shields.io/badge/System_Linux-Ubuntu-green) ![Static Badge](https://img.shields.io/badge/Language-C-blue) ![Static Badge](https://img.shields.io/badge/Leaks-No_leaks-green) ![Static Badge](https://img.shields.io/badge/total_point%20%2B%20bonus-125%20pts-green)
+![Static Badge](https://img.shields.io/badge/School_42-Antananarivo_Madagascar-green?logo=42) ![Static Badge](https://img.shields.io/badge/System_Linux-Ubuntu-green) ![Static Badge](https://img.shields.io/badge/Subject-fr-blue) ![Static Badge](https://img.shields.io/badge/Language-C-blue) ![Static Badge](https://img.shields.io/badge/Leaks-No_leaks-green) ![Static Badge](https://img.shields.io/badge/total_point%20%2B%20bonus-125%20pts-green)
 
 ## Introduction
 
